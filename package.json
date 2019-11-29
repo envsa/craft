@@ -1,0 +1,30 @@
+{
+    "name": "example-project",
+    "version": "1.0.0",
+    "description": "Example Project brand website",
+    "keywords": [
+        "Example",
+        "Keywords"
+    ],
+    "homepage": "https://github.com/DEWNR/example-project",
+    "author": {
+        "name": "DEW Internet team",
+        "email": "dew.internet@sa.gov.au",
+        "url": "https://www.environment.sa.gov.au"
+    },
+    "browser": "/web/index.php",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DEWNR/example-project.git"
+    },
+    "private": true,
+    "scripts": {},
+    "browserslist": [
+        "> 0.5% in AU",
+        "last 3 years",
+        "iOS >= 7",
+        "ie >= 11"
+    ],
+    "dependencies": {},
+    "devDependencies": {}
+}
