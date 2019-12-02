@@ -1,4 +1,4 @@
-dateModified: 1575257925
+dateModified: 1575269609
 email:
   fromEmail: dew.internet@sa.gov.au
   fromName: Craft
@@ -6,6 +6,51 @@ email:
 fieldGroups:
   9cd50e65-29bd-4d2e-a248-a71356160704:
     name: Common
+plugins:
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.2'
+  async-queue:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  dumper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  feed-me:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.2
+  image-optimize:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  retour:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.7
+  seomatic:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.8
+  twigpack:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  typogrify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 siteGroups:
   270800a7-8281-47bc-b872-3306d72b5e85:
     name: Craft
