@@ -1,0 +1,33 @@
+dateModified: 1575257925
+email:
+  fromEmail: dew.internet@sa.gov.au
+  fromName: Craft
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  9cd50e65-29bd-4d2e-a248-a71356160704:
+    name: Common
+siteGroups:
+  270800a7-8281-47bc-b872-3306d72b5e85:
+    name: Craft
+sites:
+  c9d15c14-6670-4c26-a9b8-5ea0cebb6354:
+    baseUrl: $DEFAULT_SITE_URL
+    handle: default
+    hasUrls: true
+    language: en-GB
+    name: Craft
+    primary: true
+    siteGroup: 270800a7-8281-47bc-b872-3306d72b5e85
+    sortOrder: 1
+system:
+  edition: pro
+  name: Craft
+  live: true
+  schemaVersion: 3.3.3
+  timeZone: America/Los_Angeles
+users:
+  requireEmailVerification: true
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoVolumeUid: null
+  photoSubpath: ''
