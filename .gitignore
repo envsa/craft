@@ -36,6 +36,7 @@
 .cache
 .DS_Store
 .idea
+_junk/
 .project
 .settings
 *.esproj

@@ -1,0 +1,24 @@
+/**
+ * lazysizes.scss
+ *
+ * Styles for images depending on their lazyload status
+ * https://github.com/aFarkas/lazysizes#css-api
+ *
+ */
+
+.lazyload,
+.lazyloading {
+  @include when-is('iframe') {
+    background-color: theme('colors.gray.500');
+  }
+}
+
+.lazyloaded {
+  @include when-is('iframe') {
+    background-color: transparent;
+  }
+
+  transition:
+    opacity $global-transition-timing,
+    background-color $global-transition-timing;
+}

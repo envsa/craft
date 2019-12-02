@@ -1,0 +1,38 @@
+/**
+ * typography.scss
+ *
+ * Base typography settings
+ *
+ */
+
+/**
+ * Things like font-family, font-size, font-weight, letter-spacing.
+ * More specific typography changes can be over-written in the components.
+ * margins, padding etc would likely go in specific components.
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  @include lazy-font('heading');
+}
+
+figcaption {
+  line-height: 1.5em;
+}
+
+p {
+  font-weight: 300;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
