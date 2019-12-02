@@ -2,6 +2,7 @@
   "name": "dewinternet/craft",
   "description": "A starter Craft CMS installation for DEW Websites",
   "version": "1.0.0",
+  "type": "project",
   "require": {
     "craftcms/aws-s3": "1.2.5",
     "craftcms/cms": "^3.0.0",
