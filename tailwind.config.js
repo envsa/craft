@@ -1,3 +1,5 @@
+/* eslint-disable quote-props */
+
 module.exports = {
   theme: {
     // Extend the default Tailwind config here
@@ -13,7 +15,7 @@ module.exports = {
       heading: ['sans-serif'],
       body: ['sans-serif']
     },
-    screens: {      
+    screens: {
       sm: '576px',
       md: '768px',
       lg: '992px',
