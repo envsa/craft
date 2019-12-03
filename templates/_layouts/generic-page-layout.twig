@@ -1,0 +1,41 @@
+{# -- Layout template for HTML pages -- #}
+{% extends "_boilerplate/_layouts/base-html-layout" %}
+
+{# -- Any <meta> tags that should be included in the <head> -- #}
+{% block headMeta %}
+{% endblock headMeta %}
+
+{# -- Any <link> tags that should be included in the <head> -- #}
+{% block headlinks %}
+{% endblock headlinks %}
+
+{# -- Any CSS that should be included before </head> #}
+{% block headCss %}
+{% endblock headCss %}
+
+{# -- Page body -- #}
+{% block bodyHtml %}
+    {% include "_components/skip-to-content" %}
+    <div id="page-container" class="overflow-hidden leading-tight">
+        <div id="content-container">
+            {% include "_partials/header" %}
+
+            <main id="main-content">
+                {# -- Primary content block -- #}
+                {% block content %}
+                {% endblock content %}
+
+            </main>
+        </div>
+
+        {# -- Content that appears below the primary content block -- #}
+        {% block subcontent %}
+        {% endblock subcontent %}
+
+        {% include "_partials/footer" %}
+    </div>
+{% endblock bodyHtml %}
+
+{# -- Any JavaScript that should be included before </body> -- #}
+{% block bodyJs %}
+{% endblock bodyJs %}

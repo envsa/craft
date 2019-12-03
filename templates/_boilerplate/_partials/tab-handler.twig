@@ -1,0 +1,17 @@
+{% minify css %}
+<style>
+    html:not(.user-is-tabbing) button:focus,
+    html:not(.user-is-tabbing) input:focus,
+    html:not(.user-is-tabbing) select:focus,
+    html:not(.user-is-tabbing) textarea:focus,
+    html:not(.user-is-tabbing) a:focus {
+        outline: none;
+    }
+</style>
+{% endminify %}
+
+{% minify js %}
+<script>
+    {{ craft.twigpack.includeFileFromManifest('inlinejs/tab-handler.min.js') }}
+</script>
+{% endminify %}

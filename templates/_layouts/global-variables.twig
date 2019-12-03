@@ -1,0 +1,28 @@
+{# -- Root global variables that all templates inherit from -- #}
+{# -- This allows for defining site-wide Twig variables as needed -- #}
+{% spaceless %}
+{# -- Prefetch -- #}
+{% set prefetchUrls = [
+  alias('@assetsUrl')
+] %}
+
+{# -- Generic global variables -- #}
+{% set baseUrl = devMode
+    ? 'https://localhost:' ~ getenv('DEV_SERVER_PORT') ~ '/dist/'
+    : alias('@assetsUrl') ~ '/'
+%}
+{% set gaTrackingId = getenv('GA_TRACKING_ID') %}
+{% set htmlClasses = [
+    'no-js',
+    'no-svg'
+] %}
+{% set bodyClass = '' %}
+
+{# -- Fallbacks -- #}
+{# {% set fallbackBackgroundImage = value %} #}
+
+{# -- Twig output from the render; this must be in a block -- #}
+{% block htmlPage %}
+{% endblock htmlPage %}
+
+{% endspaceless %}
