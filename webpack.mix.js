@@ -254,8 +254,8 @@ require('laravel-mix-imagemin');
 mix.imagemin(
   {
     from: path.join(source.images, '**/*'),
-    to: path.join(config.publicBuildFolder, '/img'),
-    context: 'src/img',
+    to: path.join(config.publicBuildFolder, '/images'),
+    context: 'src/images',
     ignore: '**/favicon_src.*'
   },
   {},
