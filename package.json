@@ -20,7 +20,7 @@
     },
     "private": true,
     "scripts": {
-        "dev": "npm run dev-mode-on && npm run clean && npm run clear-caches && NODE_ENV=development webpack-dev-server --inline --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "dev": "npm run dev-mode-on && npm run clean && npm run clear-caches && NODE_ENV=development webpack-dev-server --https --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "start": "npm run dev-mode-on && npm run clean && NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js && npm run clear-caches",
         "build": "npm run dev-mode-off && npm run clean && NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js && npm run clear-caches && npm run clean-manifest && npm run service-worker",
         "clean": "rimraf web/dist/* web/{*.js,hot,mix-manifest.json,*.ico}",
