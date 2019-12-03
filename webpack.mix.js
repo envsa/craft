@@ -315,20 +315,19 @@ mix.copyDirectory(
 /**
  * 🗂️ Favicons
  * Separate the assets and markup to their appropriate folders templates/_partials
+ * Due to the way that Laravel Mix versions files and includes them in the manifest,
+ * we have to do this in two steps. The only file we want included/versioned is
+ * the html_code (the actual markup to include in the template).
  */
-mix.copy(
-  [
-    `${source.favicons}/*.png`,
-    `${source.favicons}/*.xml`,
-    `${source.favicons}/*.ico`,
-    `${source.favicons}/*.svg`,
-    `${source.favicons}/*.webmanifest`
-  ],
+mix.copyDirectory(
+  source.favicons,
   path.join(config.publicFolder, config.publicBuildFolder, '/favicons')
 );
 
-mix.copy(`${source.favicons}/html_code.html`, `${source.templates}/_partials/favicons.twig`);
-mix.copy(`${source.favicons}/favicon.ico`, path.join(config.publicFolder));
+mix.copy(
+  `${source.favicons}/html_code.html`,
+  path.join(config.publicFolder, config.publicBuildFolder, '/favicons')
+);
 
 /**
  * 🚧 Webpack-dev-server
