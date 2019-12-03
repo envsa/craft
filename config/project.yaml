@@ -1,4 +1,4 @@
-dateModified: 1575337146
+dateModified: 1575351667
 email:
   fromEmail: dew.internet@sa.gov.au
   fromName: Craft
@@ -203,7 +203,7 @@ volumes:
     handle: site
     type: craft\volumes\Local
     hasUrls: true
-    url: '@assetsUrl/site'
+    url: '@assetsUrl/images/site'
     settings:
-      path: '@webroot/dist/images'
+      path: '@webroot/dist/images/site'
     sortOrder: 1

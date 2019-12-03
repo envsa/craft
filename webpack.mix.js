@@ -215,7 +215,7 @@ mix.polyfill({
   useBuiltIns: 'usage', // Only add a polyfill when a feature is used
   targets: false, // "false" makes the config use browserslist targets in package.json
   corejs: 3,
-  debug: true // "true" to check which polyfills are being used
+  debug: false // "true" to check which polyfills are being used
 });
 
 /**
@@ -254,7 +254,7 @@ require('laravel-mix-imagemin');
 mix.imagemin(
   {
     from: path.join(source.images, '**/*'),
-    to: path.join(config.publicBuildFolder, '/images'),
+    to: path.join(config.publicBuildFolder, '/images/site'),
     context: 'src/images',
     ignore: '**/favicon_src.*'
   },

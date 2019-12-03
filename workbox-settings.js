@@ -4,7 +4,7 @@ module.exports = {
   globDirectory: 'web/',
   globPatterns: [
     'dist/**/*.{html,css,js,ico,svg,woff2}',
-    'dist/img/site/offline.png'
+    'dist/images/site/offline.png'
   ],
   globIgnores: [
     '**/*_critical.min.css',

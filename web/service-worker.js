@@ -13,7 +13,68 @@ workbox.core.setCacheNameDetails({
 // Caching rules
 
 // Placeholder. At build-time, the Workbox plugin replaces the empty array with the list of resources to precache.
-workbox.precaching.precacheAndRoute([],
+workbox.precaching.precacheAndRoute([
+  {
+    "url": "dist/favicons/favicon.ico",
+    "revision": "03d7a9e10dbea10262d919d68a66eaef"
+  },
+  {
+    "url": "dist/favicons/html_code.d18fcd9a27c2dcd728e7.html",
+    "revision": "d18fcd9a27c2dcd728e7a4cbcc9056cb"
+  },
+  {
+    "url": "dist/favicons/safari-pinned-tab.svg",
+    "revision": "dbfadaf80dff5d2ad92a43af4bed82ba"
+  },
+  {
+    "url": "dist/fonts/Dewnrger67BoldCondensed.woff2",
+    "revision": "6c3f17163eb127c3afc3ad0cd46236bd"
+  },
+  {
+    "url": "dist/fonts/Dewnrger68BoldCondensedItalic.woff2",
+    "revision": "1818c44751a82adb211754a863f79472"
+  },
+  {
+    "url": "dist/fonts/ProximaNovaBold.woff2",
+    "revision": "d0cad0875b54e7f49f6959d681fc21fd"
+  },
+  {
+    "url": "dist/fonts/ProximaNovaBoldItalic.woff2",
+    "revision": "f6b9bee44af469d4c70074a089e2eae2"
+  },
+  {
+    "url": "dist/fonts/ProximaNovaItalic.woff2",
+    "revision": "fdbf4e0ccea7d6ebd832a429e7d26cab"
+  },
+  {
+    "url": "dist/fonts/ProximaNovaRegular.woff2",
+    "revision": "ec615e3f7f8a645016bfe2544fc7741a"
+  },
+  {
+    "url": "dist/main.4b455603ee4d3f6de84f.css",
+    "revision": "4b455603ee4d3f6de84f8d9cf6a27bc8"
+  },
+  {
+    "url": "dist/main.abc82e831b57bf87d88b.js",
+    "revision": "abc82e831b57bf87d88b39aa6f45982d"
+  },
+  {
+    "url": "dist/manifest.5171d11a0f19b42fcd56.js",
+    "revision": "5171d11a0f19b42fcd56d1a12d78eca4"
+  },
+  {
+    "url": "dist/sprite.e7d4a712dfe2c4c23259.svg",
+    "revision": "e7d4a712dfe2c4c232591bb2cff5b9ff"
+  },
+  {
+    "url": "dist/vendor.1a6dd91bef82266bd9d0.js",
+    "revision": "1a6dd91bef82266bd9d0b3f45aada64c"
+  },
+  {
+    "url": "dist/images/site/offline.png",
+    "revision": "463415cc4c57ea8a14495e818d22461d"
+  }
+],
 {
   cleanUrls: true
 });
