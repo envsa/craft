@@ -15,4 +15,8 @@
   svg {
     display: block;
   }
+
+  .no-svg & {
+    @apply hidden;
+  }
 }

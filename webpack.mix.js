@@ -337,7 +337,6 @@ fs.copyFile(
   `${config.publicFolder}/favicon.ico`,
   (error) => {
     if (error) throw error;
-    console.log(`favicon.ico coppied to the ${config.publicFolder}`);
   }
 );
 
