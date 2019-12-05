@@ -15,18 +15,6 @@ workbox.core.setCacheNameDetails({
 // Placeholder. At build-time, the Workbox plugin replaces the empty array with the list of resources to precache.
 workbox.precaching.precacheAndRoute([
   {
-    "url": "dist/favicons/favicon.ico",
-    "revision": "03d7a9e10dbea10262d919d68a66eaef"
-  },
-  {
-    "url": "dist/favicons/html_code.d18fcd9a27c2dcd728e7.html",
-    "revision": "d18fcd9a27c2dcd728e7a4cbcc9056cb"
-  },
-  {
-    "url": "dist/favicons/safari-pinned-tab.svg",
-    "revision": "dbfadaf80dff5d2ad92a43af4bed82ba"
-  },
-  {
     "url": "dist/fonts/Dewnrger67BoldCondensed.woff2",
     "revision": "6c3f17163eb127c3afc3ad0cd46236bd"
   },
@@ -51,12 +39,12 @@ workbox.precaching.precacheAndRoute([
     "revision": "ec615e3f7f8a645016bfe2544fc7741a"
   },
   {
-    "url": "dist/main.4b455603ee4d3f6de84f.css",
-    "revision": "4b455603ee4d3f6de84f8d9cf6a27bc8"
-  },
-  {
     "url": "dist/main.abc82e831b57bf87d88b.js",
     "revision": "abc82e831b57bf87d88b39aa6f45982d"
+  },
+  {
+    "url": "dist/main.c42f5707efc143a01c28.css",
+    "revision": "c42f5707efc143a01c28f51349ed05d3"
   },
   {
     "url": "dist/manifest.5171d11a0f19b42fcd56.js",
@@ -91,8 +79,11 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(cacheName)
       .then((cache) => {
-        console.log('Opened cache');
         return cache.addAll(urls);
+      })
+      // Make error a little more traceable
+      .catch((error) => {
+        console.error(`${cacheName}: ${error}`);
       })
   );
 });
@@ -194,7 +185,7 @@ workbox.routing.setCatchHandler(({ event }) => {
   switch (event.request.destination) {
     case 'image':
       console.log('offline image');
-      return caches.match('dist/img/site/offline.png');
+      return caches.match('dist/images/site/offline.png');
 
     case 'font':
       console.log('offline font');
