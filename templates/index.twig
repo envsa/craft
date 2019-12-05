@@ -3,20 +3,22 @@
 {# -- Any template/page specific variables -- #}
 {# {% set var = value %} #}
 
+{% from "_partials/macros" import icon %}
+
 {% block headlinks %}
     {{ parent() }}
 {% endblock headlinks %}
 
 {% block content %}
-    <section>
-        <h1>Content</h1>
+    <section class="h-screen bg-green-600 flex w-full items-center justify-center">
+        <div class="w-3/4 text-white text-center">
+            {{ icon('coffee', '') }}
+            <h1 class="text-6xl font-bold font-heading mt-5">Time to grab a coffee and start your project</h1>
+        </div>
     </section>
 {% endblock content %}
 
 {% block subcontent %}
-    <section>
-        <h2>Subcontent</h2>
-    </section>
 {% endblock subcontent %}
 
 {# -- Any JavaScript that should be included before </body> -- #}
