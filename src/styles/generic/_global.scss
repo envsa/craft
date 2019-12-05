@@ -22,11 +22,5 @@ html {
 }
 
 body {
-  @include lazy-font('body');
-}
-
-@each $key, $value in $custom-fonts {
-  .font-#{$key} {
-    @include lazy-font(#{$key});
-  }
+  @apply font-body;
 }

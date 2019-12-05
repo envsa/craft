@@ -32,33 +32,3 @@
     @content;
   }
 }
-
-/* Lazy font
-   ========================================================================== */
-
-/**
- * Automatically add the custom typeface to the font-family list of the
- * approptiate selector when the fonts have been loaded.
- * See the $custom-fonts variable in /tools/_global-variables for available
- * options.
- *
- * Usage:
- * selector {
- *   @include lazy-font('heading');
- * }
- */
-@mixin lazy-font($context) {
-  $options: map-keys($custom-fonts);
-
-  @if map-has-key($custom-fonts, #{$context}) {
-    font-family: theme('fontFamily.#{$context}');
-
-    .fonts-loaded & {
-      font-family: map-get($custom-fonts, #{$context}), theme('fontFamily.#{$context}');
-    }
-  }
-
-  @else {
-    @error "#{$context} is invalid. Try using one of these: #{$options}";
-  }
-}

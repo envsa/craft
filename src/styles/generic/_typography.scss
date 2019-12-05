@@ -17,7 +17,7 @@ h4,
 h5,
 h6,
 button {
-  @include lazy-font('heading');
+  @apply font-heading;
 }
 
 figcaption {

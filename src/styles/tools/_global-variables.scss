@@ -21,15 +21,3 @@ $assets-path: '';
 }
 
 $global-transition-timing: 0.2s ease;
-
-/* Custom fonts
-   ========================================================================== */
-
-/**
- * This will serve as a link between tailwind.config.js and the custom fonts
- * defined in ./templates/_partials/fonts/site-fonts.twig
- */
-$custom-fonts: (
-  'heading': 'dewnrger',
-  'body': 'proxima-nova'
-);

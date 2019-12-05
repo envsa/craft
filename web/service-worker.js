@@ -43,8 +43,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "abc82e831b57bf87d88b39aa6f45982d"
   },
   {
-    "url": "dist/main.c42f5707efc143a01c28.css",
-    "revision": "c42f5707efc143a01c28f51349ed05d3"
+    "url": "dist/main.f847efbaf5b0e004fe93.css",
+    "revision": "f847efbaf5b0e004fe93fb2341658e1a"
   },
   {
     "url": "dist/manifest.5171d11a0f19b42fcd56.js",

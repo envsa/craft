@@ -12,8 +12,8 @@ module.exports = {
     },
     fontFamily: {
       // We want to override these font stacks in the generic/global.scss file
-      heading: ['sans-serif'],
-      body: ['sans-serif']
+      heading: ['dewnrger', 'sans-serif'],
+      body: ['proxima-nova', 'sans-serif']
     },
     screens: {
       sm: '576px',
