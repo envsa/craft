@@ -31,8 +31,11 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(cacheName)
       .then((cache) => {
-        console.log('Opened cache');
         return cache.addAll(urls);
+      })
+      // Make error a little more traceable
+      .catch((error) => {
+        console.error(`${cacheName}: ${error}`);
       })
   );
 });
@@ -134,7 +137,7 @@ workbox.routing.setCatchHandler(({ event }) => {
   switch (event.request.destination) {
     case 'image':
       console.log('offline image');
-      return caches.match('dist/img/site/offline.png');
+      return caches.match('dist/images/site/offline.png');
 
     case 'font':
       console.log('offline font');

@@ -8,6 +8,7 @@ module.exports = {
   ],
   globIgnores: [
     '**/*_critical.min.css',
-    '**/inlinejs/**/*'
+    '**/inlinejs/**/*',
+    '**/favicons/*'
   ]
 };

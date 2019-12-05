@@ -49,6 +49,7 @@ const config = {
 const mix = require('laravel-mix');
 const path = require('path');
 const globby = require('globby');
+const fs = require('fs');
 
 // ⚙️ Source folders
 const source = {
@@ -329,6 +330,17 @@ mix.copy(
   path.join(config.publicFolder, config.publicBuildFolder, '/favicons')
 );
 
+// Copy the favicon.ico to the root folder with fs.
+// The mix.copy() command would hash the file and add it to the manifest
+fs.copyFile(
+  `${source.favicons}/favicon.ico`,
+  `${config.publicFolder}/favicon.ico`,
+  (error) => {
+    if (error) throw error;
+    console.log(`favicon.ico coppied to the ${config.publicFolder}`);
+  }
+);
+
 /**
  * 🚧 Webpack-dev-server
  * https://webpack.js.org/configuration/dev-server/
@@ -339,7 +351,7 @@ mix.webpackConfig({
     open: true, // open default browser
     overlay: true, // show compiler errors in browser as overlay
     port: config.devServerPort,
-    public: `localhost:${config.devServerPort}`,
+    public: config.devProxyDomain || `localhost:${config.devServerPort}`,
     host: '127.0.0.1', // Allows access from network
     hot: true,
     https: config.devProxyDomain.includes('https://'),
