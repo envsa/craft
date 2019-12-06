@@ -350,7 +350,7 @@ mix.webpackConfig({
     open: true, // open default browser
     overlay: true, // show compiler errors in browser as overlay
     port: config.devServerPort,
-    public: config.devProxyDomain || `localhost:${config.devServerPort}`,
+    public: `localhost:${config.devServerPort}`,
     host: '127.0.0.1', // Allows access from network
     hot: true,
     https: config.devProxyDomain.includes('https://'),
