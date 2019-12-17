@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db707ddc82f87c434d7265c29b54184f",
+    "content-hash": "a6bd444c3a4ac643462c013add5e2af4",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2707,11 +2707,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.2.35",
+            "version": "3.2.37",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/8376d6d59bfe8ef164773b021088fa35615a50d2",
-                "reference": "8376d6d59bfe8ef164773b021088fa35615a50d2",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/f785d74100092274fc81fe6d8f8e3e50a6c11e69",
+                "reference": "f785d74100092274fc81fe6d8f8e3e50a6c11e69",
                 "shasum": ""
             },
             "require": {
@@ -2747,7 +2747,6 @@
                     "nystudio107\\seomatic\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -2759,20 +2758,24 @@
             ],
             "description": "SEOmatic facilitates modern SEO best practices & implementation for Craft CMS 3. It is a turnkey SEO system that is comprehensive, powerful, and flexible.",
             "keywords": [
-                "Craft",
-                "JSON-LD",
-                "Sitemap",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "facebook",
+                "json-ld",
                 "meta",
                 "seo",
                 "seomatic",
+                "sitemap",
                 "tags",
                 "twitter"
             ],
-            "time": "2019-11-26T18:08:15+00:00"
+            "support": {
+                "docs": "https://nystudio107.com/plugins/seomatic/documentation",
+                "issues": "https://nystudio107.com/plugins/seomatic/support"
+            },
+            "time": "2019-12-11T18:27:39+00:00"
         },
         {
             "name": "nystudio107/craft-twigpack",
