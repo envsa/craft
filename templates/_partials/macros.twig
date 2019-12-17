@@ -1,0 +1,40 @@
+{#
+================================================================================
+SVG Icons
+================================================================================
+Add new icons by dropping a svg into the 'src/icons' folder.
+Usage:
+{% from '_macros' import icon %}
+{{ icon('iconFilename', 'classes') }}
+#}
+
+{% macro icon(iconFilename, classes) %}
+	<span class="icon {{ "icon-#{iconFilename}" }}">
+		<svg class="{{ classes }}"><use xlink:href="{{ "#icon-#{iconFilename}" }}"></use></svg>
+	</span>
+{% endmacro %}
+
+{#
+================================================================================
+Date formatted
+================================================================================
+Will format the date as 1st January 2019
+j - Day of the month without leading zeros
+S - English ordinal suffix for the day of the month, 2 characters
+F - A full textual representation of a month, such as January or March
+Y - A full numeric representation of a year, 4 digits
+#}
+
+{% macro dateFormatted(givenDate) %}
+    {{ givenDate|date('jS F Y') }}
+{% endmacro %}
+
+{#
+================================================================================
+Nav title
+================================================================================
+Try using the nav title for a given entry but fallback to it's title
+#}
+{% macro navTitle(entry) %}
+    {{ entry.navTitle|default(entry.title) }}
+{% endmacro %}

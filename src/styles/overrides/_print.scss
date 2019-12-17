@@ -1,0 +1,57 @@
+/**
+ * print.scss
+ *
+ * Base print styles
+ *
+ */
+
+/* stylelint-disable declaration-no-important */
+
+/**
+ * We only want to make global rules here.
+ * Anything component specific should be done in the component stylesheet
+ */
+
+@media print {
+  html {
+    @apply bg-transparent text-black;
+
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  a {
+    &,
+    &:visited {
+      @apply no-underline;
+    }
+
+    // include the href after links, unless they contain a # or javascript
+    &[href]:not([href^="#"]):not([href^="javascript"])::after {
+      content: " [" attr(href) "]";
+    }
+  }
+
+  // Typography
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3, {
+    page-break-after: avoid;
+  }
+
+  // anything we want to hide
+  iframe {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

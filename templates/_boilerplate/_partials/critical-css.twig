@@ -1,0 +1,14 @@
+{% import "_boilerplate/_partials/cookies" as cookies %}
+
+{% if cookies.get('MAIN_CSS') %}
+	{{ craft.twigpack.includeCssModule('main.css', false) }}
+{% else %}
+
+	{% do cookies.set('MAIN_CSS', '1', '+7 Days', '/', '', true, true) %}
+
+	<!-- Critical css -->
+	{{ craft.twigpack.includeInlineCssTags("@webroot/dist/" ~ entry.type ~ "_critical.min.css") }}
+
+	{{ craft.twigpack.includeCssModule('main.css', true) }}
+	{{ craft.twigpack.includeCssRelPreloadPolyfill() }}
+{% endif %}

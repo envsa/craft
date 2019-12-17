@@ -1,0 +1,24 @@
+{# -- Layout template for error pages -- #}
+{% extends "_layouts/generic-page-layout" %}
+
+{% block content %}
+{% endblock content %}
+
+{% block subcontent %}
+    <section>
+        <div class="container mx-auto py-8">
+            <div class="text-center p-8 mb-8">
+                <h1 class="font-heading italic font-bold text-5xl pt-4">
+                    {{ entry.errorHeadline ?? 'Error' }}
+                </h1>
+                <p class="font-body text-xl pt-4">
+                    {{ (entry.errorText ?? 'An error has occured.')|nl2br }}
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock subcontent %}
+
+{# -- Any JavaScript that should be included before </body> -- #}
+{% block bodyJs %}
+{% endblock bodyJs %}

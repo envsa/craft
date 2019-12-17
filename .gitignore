@@ -1,0 +1,53 @@
+# Craft 3 .gitignore
+# 
+# Example .gitignore for Craft 3 CMS projects
+# 
+# @author     Department for Environment and Water
+# @copyright  Copyright (c) 2019 Department for Environemnt and Water
+# @link       https://environment.sa.gov.au
+# @package    dewinternet/craft-starter
+# @since      1.0.0
+# @license    MIT
+
+# This file should be placed in your Craft 3 CMS project root directory
+
+# CRAFT ENVIRONMENT
+.env*
+!.env.example
+
+# COMPOSER
+/vendor
+
+# CRAFT STORAGE
+/storage/*
+!/storage/.gitkeep
+
+# ASSETS
+/web/cpresources/*
+
+# BUILD FILES
+/bower_components/*
+/node_modules/*
+/build/*
+/yarn-error.log
+/npm-debug.log
+
+# MISC FILES
+.cache
+.DS_Store
+.idea
+_junk/
+.project
+.settings
+*.esproj
+*.sublime-workspace
+*.sublime-project
+*.tmproj
+*.tmproject
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+config.codekit3
+prepros-6.config

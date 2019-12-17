@@ -1,0 +1,10 @@
+{
+    "vendor.js": "vendor.1a6dd91bef82266bd9d0.js",
+    "main.js": "main.abc82e831b57bf87d88b.js",
+    "main.css": "main.9f90b5ca5dc35a97dfb3.css",
+    "manifest.js": "manifest.5171d11a0f19b42fcd56.js",
+    "sprite.svg": "sprite.e7d4a712dfe2c4c23259.svg",
+    "inlinejs/register-service-worker.min.js": "inlinejs/register-service-worker.8807cf8a04b77733b327.min.js",
+    "inlinejs/tab-handler.min.js": "inlinejs/tab-handler.944ad820d2d887e5cb0c.min.js",
+    "favicons/html_code.html": "favicons/html_code.d18fcd9a27c2dcd728e7.html"
+}

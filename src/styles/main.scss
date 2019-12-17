@@ -1,0 +1,38 @@
+/**
+ * main.scss
+ *
+ * Everything gets imported in a logical order
+ *
+ */
+
+/* Tools
+   ========================================================================== */
+@import 'tools/global-variables';
+@import 'tools/mixins';
+@import 'tools/functions';
+
+/* Tailwind Base
+   ========================================================================== */
+@tailwind base;
+@tailwind components;
+
+/* Generic
+   ========================================================================== */
+@import 'generic/global';
+@import 'generic/typography';
+@import 'generic/icons';
+@import 'generic/lazysizes';
+@import 'generic/animations';
+@import 'generic/pdf-links';
+
+/* Components
+   ========================================================================== */
+@import 'components/skip-to-content';
+
+/* Utilities
+   ========================================================================== */
+@tailwind utilities;
+
+/* Overrides
+   ========================================================================== */
+@import 'overrides/print';

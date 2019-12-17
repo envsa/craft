@@ -1,0 +1,23 @@
+/**
+ * global-variables.scss
+ *
+ * These are variables that might be used across all of our stylesheets
+ *
+ */
+
+/**
+ * The assets path will need updating depending on whether webpack dev server
+ * or Craft is handling the assets. The `$isDev` and `$assetRoot` variables are
+ * passed in by our mix config.
+ */
+$assets-path: '';
+
+@if $isDev {
+  $assets-path: '/';
+}
+
+@else {
+  $assets-path: $assetRoot;
+}
+
+$global-transition-timing: 0.2s ease;

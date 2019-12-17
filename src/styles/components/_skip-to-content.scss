@@ -1,0 +1,21 @@
+/**
+ * skip-to-content.scss
+ *
+ * A hidden component that allows the user to skip navigation area when tabbing
+ *
+ */
+.c-skip-to-content {
+  @apply absolute overflow-hidden z-50 text-center font-bold mt-10;
+
+  width: 1px;
+  height: 1px;
+  top: -500px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top $global-transition-timing;
+
+  &:focus,
+  &:active {
+    @apply fixed w-auto h-auto top-0 bg-white py-3 px-5;
+  }
+}

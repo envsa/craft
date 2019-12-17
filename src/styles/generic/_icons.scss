@@ -1,0 +1,22 @@
+/**
+ * icons.scss
+ *
+ * Base styling for all icons
+ *
+ */
+
+.icon {
+  color: inherit;
+  display: inline-block;
+  fill: currentColor;
+  stroke: none;
+  vertical-align: middle;
+
+  svg {
+    display: block;
+  }
+
+  .no-svg & {
+    @apply hidden;
+  }
+}

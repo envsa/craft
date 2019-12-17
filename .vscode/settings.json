@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "modules/": true,
+    "storage/": true,
+    "vendor/": true,
+    "craft.bat": true,
+    "craft": true
+  },
+  "stylelint.enable": true,
+  "editor.rulers": [80],
+  "[twig]": {
+    "editor.rulers": [0]
+  }
+}
