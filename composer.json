@@ -4,15 +4,15 @@
   "version": "1.0.1",
   "type": "project",
   "require": {
-    "craftcms/aws-s3": "1.2.5",
-    "craftcms/cms": "3.3.18.2",
+    "craftcms/aws-s3": "^1.2.5",
+    "craftcms/cms": "^3.4.1",
     "craftcms/feed-me": "^4.1.2",
     "craftcms/redactor": "^2.3.3.2",
     "nystudio107/craft-imageoptimize": "^1.6",
     "nystudio107/craft-minify": "^1.2.5",
-    "nystudio107/craft-retour": "3.1.31",
-    "nystudio107/craft-routemap": "1.1.6",
-    "nystudio107/craft-seomatic": "3.2.37",
+    "nystudio107/craft-retour": "^3.1.31",
+    "nystudio107/craft-routemap": "^1.1.6",
+    "nystudio107/craft-seomatic": "^3.2.37",
     "nystudio107/craft-twigpack": "^1.0.0",
     "nystudio107/craft-typogrify": "^1.1.1",
     "studioespresso/craft-dumper": "^2.0.0",
@@ -28,7 +28,7 @@
     "sort-packages": true,
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.2"
+      "php": "7.3"
     }
   },
   "scripts": {
