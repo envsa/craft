@@ -16,7 +16,7 @@ if (class_exists('Dotenv\Dotenv') && file_exists(CRAFT_BASE_PATH.'/.env')) {
 }
 
 // Set license key via .env
-define('CRAFT_LICENSE_KEY', getenv('LICENSE_KEY'));
+// define('CRAFT_LICENSE_KEY', getenv('LICENSE_KEY'));
 
 // Load and run Craft
 define('CRAFT_ENVIRONMENT', getenv('ENVIRONMENT') ?: 'production');
