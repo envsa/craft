@@ -18,8 +18,31 @@
  */
 
 return [
-    'modules' => [
-        'my-module' => \modules\Module::class,
+  'modules' => [
+    'my-module' => \modules\Module::class,
+  ],
+  // 'bootstrap' => ['site-module'],
+  'components' => [
+    'deprecator' => [
+      'throwExceptions' => YII_DEBUG,
     ],
-    //'bootstrap' => ['my-module'],
+    'redis' => [
+      'class' => yii\redis\Connection::class,
+      'hostname' => getenv('REDIS_HOSTNAME'),
+      'port' => getenv('REDIS_PORT'),
+      'database' => getenv('REDIS_DEFAULT_DB'),
+    ],
+    'cache' => [
+      'class' => yii\redis\Cache::class,
+      'redis' => [
+        'database' => getenv('REDIS_CRAFT_DB'),
+      ],
+    ],
+    'session' => [
+      'class' => \yii\redis\Session::class,
+      'as session' => [
+        'class' => \craft\behaviours\SessionBehavior::class,
+      ],
+    ],
+  ],
 ];
