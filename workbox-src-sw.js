@@ -1,18 +1,39 @@
 /* global workbox, importScripts */
+/** CHECKLIST FOR A NEW PROJECT
+ * Set cache prefix to the project/website name
+ * Add any other useful urls to the urls array
+ * Make sure everything is working as expected then set debug to false
+ * Remove this comment block, you're ready to go :)
+ */
+
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
 
+// EDIT THIS
+const config = {
+  projectName: 'REPLACE_ME',
+  precacheUrls: [],
+  cloudfrontUrls: [
+    // Cloudfront url and serverless image handler url from .env
+  ],
+  defaultFont: 'dist/fonts/ProximaNovaRegular.woff2',
+  debug: true
+};
+
+// Settings below here will most likely be the same for each project.
+// -----------------------------------------------------------------------------
 // Force development builds off or on
-workbox.setConfig({ debug: true });
+workbox.setConfig({ debug: config.debug });
 
 workbox.core.setCacheNameDetails({
-  prefix: 'example',
+  prefix: config.projectName,
   precache: 'precache',
   runtime: 'runtime'
 });
 
 // Caching rules
 
-// Placeholder. At build-time, the Workbox plugin replaces the empty array with the list of resources to precache.
+// Placeholder. At build-time, the Workbox plugin replaces the empty array with
+// the list of resources to precache.
 workbox.precaching.precacheAndRoute([
 ],
 {
@@ -23,8 +44,8 @@ workbox.precaching.precacheAndRoute([
 self.addEventListener('install', (event) => {
   const urls = [
     '/',
-    '/offline'
-    // Any other useful urls
+    '/offline',
+    ...config.precacheUrls
   ];
 
   const cacheName = 'all-cache'; // workbox.core.cacheNames.runtime
@@ -41,7 +62,8 @@ self.addEventListener('install', (event) => {
 });
 
 // cache dynamic routes e.g. API calls
-// cache third-party files by specific domains. Must use StaleWhileRevalidate when headers are Opaque
+// cache third-party files by specific domains. Must use StaleWhileRevalidate
+// when headers are Opaque.
 workbox.routing.registerRoute(
   // e.g. https://instagram.fadl6-1.fna.fbcdn.net/vp/1b63cee59babc6909f2b58f34fd05956/5E59E6AC/t51.2885-15/e15/c135.0.810.810a/s640x640/68673853_395313984355023_9032710020976394898_n.jpg?_nc_ht=instagram.fadl6-1.fna.fbcdn.net&_nc_cat=103
   new RegExp(/^https:\/\/instagram\.([a-z-0-9]){1,9}\.fna\.fbcdn\.net\//),
@@ -58,8 +80,9 @@ workbox.routing.registerRoute(
 
 // cache third-party files by specific domains
 workbox.routing.registerRoute(
-  // e.g. https://s3.ap-southeast-2.amazonaws.com/env.images/adelaide-gaol/backgrounds/_1200x675_crop_center-center_82_line/homepage-bg.jpg
-  new RegExp(/^https:\/\/s3\.ap-southeast-(\d){1,2}\.amazonaws\.com\/env\.images\/.*/),
+  // https://[14 alphanumeric or underscore characters].cloudfront.net
+  // e.g. https://d35s2bz2fw949f.cloudfront.net/
+  new RegExp(/^https:\/\/\w{14}\.cloudfront\.net/),
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'image-cache',
     plugins: [
@@ -68,15 +91,6 @@ workbox.routing.registerRoute(
         maxEntries: 100
       })
     ]
-  })
-);
-
-// cache third-party files by specific domains
-workbox.routing.registerRoute(
-  // e.g. https://d19ezedjtoh8s7.cloudfront.net/
-  new RegExp(/^https:\/\/d19ezedjtoh8s7\.cloudfront\.net/),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'image-cache'
   })
 );
 
@@ -117,7 +131,7 @@ workbox.routing.registerRoute(
 // cache files by broad wildcards
 workbox.routing.registerRoute(
   // match all files except /cpresources or /admin or index.php
-  new RegExp(/(\/\/){1}[a-zA-Z0-9._-]*(\/){1}(?!cpresources|admin|index.php).*/), // '/.*'
+  new RegExp(/(\/\/){1}[a-zA-Z0-9._-]*(\/){1}(?!cpresources|admin|index.php).*/),
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'all-cache'
   })
@@ -126,10 +140,11 @@ workbox.routing.registerRoute(
 // This "catch" handler is triggered when any of the other routes fail to
 // generate a response.
 workbox.routing.setCatchHandler(({ event }) => {
-  // The FALLBACK_URL entries must be added to the cache ahead of time, either via runtime
-  // or precaching.
-  // If they are precached, then call workbox.precaching.getCacheKeyForURL(FALLBACK_URL)
-  // to get the correct cache key to pass in to caches.match().
+  // The FALLBACK_URL entries must be added to the cache ahead of time, either
+  // via runtime or precaching.
+  // If they are precached, then call
+  // workbox.precaching.getCacheKeyForURL(FALLBACK_URL) to get the correct cache
+  // key to pass in to caches.match().
   //
   // Use event, request, and url to figure out how to respond.
   // One approach would be to use request.destination, see
@@ -141,7 +156,7 @@ workbox.routing.setCatchHandler(({ event }) => {
 
     case 'font':
       console.log('offline font');
-      return caches.match('dist/fonts/ProximaNovaRegular.woff2');
+      return caches.match(config.defaultFont);
 
     case 'document':
       return caches.match('offline');
