@@ -12,7 +12,7 @@ module.exports = {
     },
     fontFamily: {
       // We want to override these font stacks in the generic/global.scss file
-      heading: ['dewnrger', 'sans-serif'],
+      heading: ['proxima-nova', 'sans-serif'],
       body: ['proxima-nova', 'sans-serif']
     },
     screens: {
@@ -35,5 +35,6 @@ module.exports = {
   corePlugins: {},
   plugins: [
     require('tailwindcss-aspect-ratio')()
-  ]
+  ],
+  purge: false
 };

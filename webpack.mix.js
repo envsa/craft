@@ -33,27 +33,31 @@ const config = {
   devWatchPaths: ['templates'],
   // Port to use with webpack-dev-server
   devServerPort: process.env.DEVSERVER_PORT,
+  // Enable purgecss
+  purgeCss: false,
   // Folders where purgeCss can look for used selectors
   purgeCssGrabFolders: ['src', 'templates'],
+  // Specific selectors that purgeCss should not remove
+  purceCssWhitelistSelectors: [],
+  // Selector patterns that purgeCss should not remove
+  purgeCssWhitelistPatterns: [],
   // Urls for CriticalCss to look for "above the fold" Css
   criticalCssUrls: [
-    { urlPath: '/', label: 'homepage' }
+    // { urlPath: '/', label: 'homepage' }
   ],
   // Folder served to users
-  publicFolder: 'web',
+  publicFolder: './web',
   // Foldername for built src assets (relative to publicFoler)
-  publicBuildFolder: './dist/'
+  publicBuildFolder: `.${process.env.ASSETS_URL}`
 };
 
 // ⚙️ Imports
 const mix = require('laravel-mix');
 const path = require('path');
 const globby = require('globby');
-const fs = require('fs');
 
 // ⚙️ Source folders
 const source = {
-  favicons: path.resolve('src/favicons'),
   icons: path.resolve('src/icons'),
   images: path.resolve('src/images'),
   scripts: path.resolve('src/js'),
@@ -73,7 +77,9 @@ inlineScripts = [
 // ⚙️ Misc
 mix.setPublicPath(config.publicFolder);
 mix.disableNotifications();
-mix.webpackConfig({ resolve: { alias: source } });
+mix.webpackConfig({
+  resolve: { alias: source }
+});
 !mix.inProduction() && mix.sourceMaps();
 
 /**
@@ -121,7 +127,14 @@ styleFiles.forEach(styleFile => {
   mix.sass(
     styleFile,
     path.join(config.publicFolder, config.publicBuildFolder),
-    { prependData: styleData }
+    {
+      prependData: styleData,
+      sassOptions: {
+        includePaths: [
+          path.resolve(__dirname, 'node_modules/')
+        ]
+      }
+    }
   );
 });
 
@@ -130,7 +143,7 @@ styleFiles.forEach(styleFile => {
  * https://github.com/addyosmani/critical#options
  */
 const criticalDomain = config.devProxyDomain;
-if (criticalDomain) {
+if (criticalDomain && config.criticalCssUrls.length) {
   require('laravel-mix-critical');
   mix.critical({
     enabled: mix.inProduction() && config.criticalCssUrls.length,
@@ -156,10 +169,10 @@ if (criticalDomain) {
 if (config.purgeCssGrabFolders.length) {
   require('laravel-mix-purgecss');
   mix.purgeCss({
-    enabled: mix.inProduction(),
+    enabled: config.purgeCss && mix.inProduction(),
     folders: config.purgeCssGrabFolders, // Folders scanned for selectors
-    whitelist: [],
-    whitelistPatterns: [/icon-*/, /js-*/, /fonts-loaded/],
+    whitelist: config.purceCssWhitelistSelectors,
+    whitelistPatterns: config.purgeCssWhitelistPatterns,
     extensions: ['php', 'twig', 'html', 'js']
   });
 }
@@ -263,7 +276,7 @@ mix.imagemin(
   {
     gifsicle: { interlaced: true },
     mozjpeg: { progressive: true, arithmetic: false },
-    optipng: { optimizationLevel: 3 }, // Lower number = speedier/reduced compression
+    optipng: { optimizationLevel: 6 }, // Lower number = speedier/reduced compression
     svgo: {
       plugins: [
         { convertPathData: false },
@@ -296,7 +309,7 @@ mix.options({
   imgLoaderOptions: {
     svgo: {
       plugins: [
-        { convertColors: { currentColor: false } },
+        { convertColors: { currentColor: true } },
         { removeDimensions: false },
         { removeViewBox: false }
       ]
@@ -314,44 +327,17 @@ mix.copyDirectory(
 );
 
 /**
- * 🗂️ Favicons
- * Separate the assets and markup to their appropriate folders templates/_partials
- * Due to the way that Laravel Mix versions files and includes them in the manifest,
- * we have to do this in two steps. The only file we want included/versioned is
- * the html_code (the actual markup to include in the template).
- */
-mix.copyDirectory(
-  source.favicons,
-  path.join(config.publicFolder, config.publicBuildFolder, '/favicons')
-);
-
-mix.copy(
-  `${source.favicons}/html_code.html`,
-  path.join(config.publicFolder, config.publicBuildFolder, '/favicons')
-);
-
-// Copy the favicon.ico to the root folder with fs.
-// The mix.copy() command would hash the file and add it to the manifest
-fs.copyFile(
-  `${source.favicons}/favicon.ico`,
-  `${config.publicFolder}/favicon.ico`,
-  (error) => {
-    if (error) throw error;
-  }
-);
-
-/**
  * 🚧 Webpack-dev-server
  * https://webpack.js.org/configuration/dev-server/
  */
 mix.webpackConfig({
   devServer: {
     clientLogLevel: 'none', // Hide console feedback so eslint can take over
-    open: true, // open default browser
+    open: false, // open default browser
     overlay: true, // show compiler errors in browser as overlay
     port: config.devServerPort,
-    public: `localhost:${config.devServerPort}`,
-    host: '127.0.0.1', // Allows access from network
+    public: process.env.DEVSERVER_PUBLIC,
+    host: process.env.DEVSERVER_HOST, // Allows access from network
     hot: true,
     https: config.devProxyDomain.includes('https://'),
     cert: process.env.DEVSERVER_CERT,
@@ -371,7 +357,7 @@ mix.webpackConfig({
       '**': {
         target: config.devProxyDomain,
         changeOrigin: true,
-        secure: false
+        secure: config.devProxyDomain.includes('https://')
       }
     }
   }
