@@ -3,11 +3,11 @@
 <script src="https://cdn.polyfill.io/v3/polyfill.min.js?callback=polyfillsAreLoaded&flags=gated" defer async></script>
 
 <!-- Service worker -->
-{% if not devMode %}
+{# {% if not devMode %}
     <script>
         {{ craft.twigpack.includeFileFromManifest('inlinejs/register-service-worker.min.js') }}
     </script>
-{% endif %}
+{% endif %} #}
 
 <!-- Tab handler -->
 {% include "_boilerplate/_partials/tab-handler" %}

@@ -1,9 +1,11 @@
 {# -- Root global variables that all templates inherit from -- #}
 {# -- This allows for defining site-wide Twig variables as needed -- #}
 {% spaceless %}
+
 {# -- Prefetch -- #}
 {% set prefetchUrls = [
-  alias('@assetsUrl')
+  alias('@assetsUrl'),
+  'https://www.google-analytics.com'
 ] %}
 
 {# -- Generic global variables -- #}
@@ -11,7 +13,8 @@
     ? 'https://localhost:' ~ getenv('DEV_SERVER_PORT') ~ '/dist/'
     : alias('@assetsUrl') ~ '/'
 %}
-{% set gaTrackingId = getenv('GA_TRACKING_ID') %}
+
+{# -- Default classes -- #}
 {% set htmlClasses = [
     'no-js',
     'no-svg'

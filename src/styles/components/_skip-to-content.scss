@@ -5,10 +5,8 @@
  *
  */
 .c-skip-to-content {
-  @apply absolute overflow-hidden z-50 text-center font-bold mt-10;
+  @apply absolute overflow-hidden z-50 text-center font-bold mt-10 w-px h-px;
 
-  width: 1px;
-  height: 1px;
   top: -500px;
   left: 50%;
   transform: translateX(-50%);
