@@ -9,9 +9,11 @@ Usage:
 #}
 
 {% macro icon(iconFilename, classes) %}
-	<span class="icon {{ "icon-#{iconFilename}" }}">
-		<svg class="{{ classes }}"><use xlink:href="{{ "#icon-#{iconFilename}" }}"></use></svg>
-	</span>
+	{% spaceless %}
+        <span class="icon {{ "icon-#{iconFilename}" }}">
+            <svg class="{{ classes }}"><use xlink:href="{{ "#icon-#{iconFilename}" }}"></use></svg>
+        </span>
+    {% endspaceless %}
 {% endmacro %}
 
 {#
