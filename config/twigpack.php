@@ -21,12 +21,12 @@ return [
     // Public server config
     'server' => [
       'manifestPath' => '@webroot/',
-      'publicPath' => '/dist/',
+      'publicPath' => '@assetsUrl',
     ],
     // webpack-dev-server config
     'devServer' => [
       'manifestPath' => '@webroot/',
-      'publicPath' => getenv('TWIGPACK_DEV_SERVER_PUBLIC_PATH'),
+      'publicPath' => getenv('DEVSERVER_PUBLIC') . getenv('PUBLIC_PATH'),
     ],
     // Local files config
     'localFiles' => [

@@ -1,0 +1,6 @@
+{
+  "buttons": ["bold", "italic", "link", "file", "lists"],
+  "linkNewTab": true,
+  "toolbarFixed": true,
+  "removeNewLines": true
+}

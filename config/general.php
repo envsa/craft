@@ -12,7 +12,6 @@ return [
   // Craft config settings from .env variables
   'aliases' => [
     '@assetsUrl' => getenv('ASSETS_URL'),
-    '@cloudfrontUrl' => getenv('CLOUDFRONT_URL'),
     '@web' => getenv('SITE_URL'),
     '@webroot' => getenv('WEB_ROOT_PATH'),
   ],
@@ -23,8 +22,7 @@ return [
   'devMode' => (bool)getenv('DEV_MODE'),
   'enableTemplateCaching' => (bool)getenv('ENABLE_TEMPLATE_CACHING'),
   'isSystemLive' => (bool)getenv('IS_SYSTEM_LIVE'),
-  'resourceBasePath' => getenv('WEB_ROOT_PATH').'/web/cpresources',
-  'runQueueAutomatically' => (bool)getenv('RUN_QUEUE_AUTOMATICALLY'),
+  'resourceBasePath' => dirname(__DIR__) . '/web/cpresources',
   'securityKey' => getenv('SECURITY_KEY'),
   // Craft config settings from constants
   'cacheDuration' => false,
@@ -32,15 +30,14 @@ return [
     'subLeft' => true,
     'subRight' => true,
   ],
-  'defaultTokenDuration' => 'P2W',
   'enableCsrfProtection' => true,
   'errorTemplatePrefix' => 'errors/',
   'generateTransformsBeforePageLoad' => true,
+  'loginPath' => 'login',
   'maxCachedCloudImageSize' => 3000,
-  'maxRevisions' => 5,
+  'maxRevisions' => 0,
   'maxUploadFileSize' => '100M',
   'omitScriptNameInUrls' => true,
-  'useEmailAsUsername' => true,
-  'usePathInfo' => true,
   'useProjectConfigFile' => true,
+  'useEmailAsUsername' => true,
 ];
