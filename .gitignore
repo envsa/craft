@@ -1,15 +1,4 @@
 # Craft 3 .gitignore
-# 
-# Example .gitignore for Craft 3 CMS projects
-# 
-# @author     Department for Environment and Water
-# @copyright  Copyright (c) 2019 Department for Environemnt and Water
-# @link       https://environment.sa.gov.au
-# @package    dewinternet/craft-starter
-# @since      1.0.0
-# @license    MIT
-
-# This file should be placed in your Craft 3 CMS project root directory
 
 # CRAFT ENVIRONMENT
 .env*
