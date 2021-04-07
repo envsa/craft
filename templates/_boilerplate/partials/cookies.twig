@@ -10,13 +10,6 @@
  # Set a cookie:
  # {% do cookies.set('cookie-monster', 'more cookies please', now | date_modify('+1 hour').timestamp) %}
  #
- # @package   nystudio107\craft
- # @since     1.0.0
- # @author    nystudio107
- # @link      https://nystudio107.com
- # @copyright Copyright (c) 2019 nystudio107
- # @license   MIT
- # @license   https://opensource.org/licenses/MIT MIT Licensed
  #}
 
 {#
@@ -27,7 +20,9 @@
  # @param yii\web\CookieCollection  cookieJar
  #
  # @return string className
+ #
  #}
+
 {%- macro get(name, cookieJar = null) -%}
     {% spaceless %}
         {% set cookieJar = cookieJar ?? craft.app.request.cookies %}
@@ -50,7 +45,9 @@
  # @param bool                      httpOnly
  # @param string                    sameSite
  # @param yii\web\CookieCollection  cookieJar
+ #
  #}
+
 {%- macro set(name, value = '', expires = 0, path = '/', domain = '', secure = false, httpOnly = false, sameSite = null, cookieJar = null) -%}
     {% spaceless %}
         {% set cookieJar = cookieJar ?? craft.app.response.cookies %}

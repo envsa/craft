@@ -8,22 +8,25 @@
  * @see \craft\config\GeneralConfig
  */
 
+use craft\helpers\App;
+
 return [
   // Craft config settings from .env variables
   'aliases' => [
-    '@assetsUrl' => getenv('ASSETS_URL'),
-    '@web' => getenv('SITE_URL'),
-    '@webroot' => getenv('WEB_ROOT_PATH'),
+    '@assetsUrl' => App::env('ASSETS_URL'),
+    '@web' => App::env('SITE_URL'),
+    '@webroot' => App::env('WEB_ROOT_PATH'),
   ],
-  'allowUpdates' => (bool)getenv('ALLOW_UPDATES'),
-  'allowAdminChanges' => (bool)getenv('ALLOW_ADMIN_CHANGES'),
-  'backupOnUpdate' => (bool)getenv('BACKUP_ON_UPDATE'),
-  'cpTrigger' => getenv('CP_TRIGGER') ?: 'admin',
-  'devMode' => (bool)getenv('DEV_MODE'),
-  'enableTemplateCaching' => (bool)getenv('ENABLE_TEMPLATE_CACHING'),
-  'isSystemLive' => (bool)getenv('IS_SYSTEM_LIVE'),
+  'allowUpdates' => (bool)App::env('ALLOW_UPDATES'),
+  'allowAdminChanges' => (bool)App::env('ALLOW_ADMIN_CHANGES'),
+  'backupOnUpdate' => (bool)App::env('BACKUP_ON_UPDATE'),
+  'cpTrigger' => App::env('CP_TRIGGER') ?: 'admin',
+  'devMode' => (bool)App::env('DEV_MODE'),
+  'enableGraphQlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
+  'enableTemplateCaching' => (bool)App::env('ENABLE_TEMPLATE_CACHING'),
+  'isSystemLive' => (bool)App::env('IS_SYSTEM_LIVE'),
   'resourceBasePath' => dirname(__DIR__) . '/web/cpresources',
-  'securityKey' => getenv('SECURITY_KEY'),
+  'securityKey' => App::env('SECURITY_KEY'),
   // Craft config settings from constants
   'cacheDuration' => false,
   'defaultSearchTermOptions' => [
@@ -34,6 +37,7 @@ return [
   'errorTemplatePrefix' => 'errors/',
   'generateTransformsBeforePageLoad' => true,
   'loginPath' => 'login',
+  'postLoginRedirect' => '/',
   'maxCachedCloudImageSize' => 3000,
   'maxRevisions' => 0,
   'maxUploadFileSize' => '100M',

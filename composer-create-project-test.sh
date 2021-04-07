@@ -16,7 +16,7 @@
 # Capture command line args, or set defaults.
 BRANCH_NAME=${1:-master}
 DEST_DIR=${2:-~/Desktop/newapp}
-PACKAGE_NAME=dewinternet/craft
+PACKAGE_NAME=envsa/craft
 
 # Warn the dev if they have uncommitted changes since they won't
 # be included in the spawned project.

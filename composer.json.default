@@ -1,38 +1,33 @@
 {
   "require": {
-    "craftcms/cms": "^3.4.0",
+    "craftcms/cms": "^3",
     "vlucas/phpdotenv": "^3.4.0",
-    "yiisoft/yii2-redis": "^2.0.6",
-    "craftcms/aws-s3": "^1.2.5",
-    "craftcms/feed-me": "^4.1.2",
-    "craftcms/redactor": "^2.3.3.2",
-    "nystudio107/craft-imageoptimize": "^1.6.0",
-    "nystudio107/craft-minify": "^1.2.5",
-    "nystudio107/craft-typogrify": "^1.1.1",
-    "nystudio107/craft-retour": "^3.1.31",
-    "nystudio107/craft-seomatic": "^3.2.37",
-    "nystudio107/craft-scripts": "^1.2.4",
-    "nystudio107/craft-twigpack": "^1.0.0",
-    "nystudio107/twig-bundle-installer": "^1.0.0",
-    "nystudio107/test-twig-bundle": "^1.0.0",
-    "studioespresso/craft-dumper": "^2.0.0"
+    "yiisoft/yii2-redis": "^2",
+    "craftcms/aws-s3": "^1",
+    "craftcms/feed-me": "^4",
+    "craftcms/redactor": "^2",
+    "nystudio107/craft-imageoptimize": "^1",
+    "nystudio107/craft-minify": "^1",
+    "nystudio107/craft-retour": "^3",
+    "nystudio107/craft-seomatic": "^3",
+    "studioespresso/craft-dumper": "^2"
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/"
+      "modules\\sitemodule\\": "modules/sitemodule/src/"
     }
   },
   "config": {
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.3"
     }
   },
   "scripts": {
     "craft-update": [
       "@php nys-setup update",
       "@php craft migrate/all",
-      "@php craft project-config/sync",
+      "@php craft project-config/apply",
       "@php craft clear-caches/all"
     ],
     "post-root-package-install": [
