@@ -1,0 +1,47 @@
+childBlocks: ''
+field: 9ccb3478-824d-4f4b-a1ca-7589415a1339 # Content builder
+fieldLayouts:
+  7a07039d-10df-4e6a-a9e7-362c6abdb517:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c1fbbe64-a078-4af6-9266-3321a7dc4724 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Main
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 886db157-8715-44d2-a1f6-36b4ac508beb # Show caption
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 112c70eb-196d-49cf-8c69-cb6cd11432ac # Caption
+            instructions: ''
+            label: 'Custom caption'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Settings
+        sortOrder: 2
+handle: image
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Image
+sortOrder: 2
+topLevel: true

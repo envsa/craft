@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: c070a16a-3c83-4536-ad01-e4a85fade10d # Assets
+handle: altText
+instructions: ''
+name: 'Alt text'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

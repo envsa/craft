@@ -1,0 +1,20 @@
+contentColumnType: string
+fieldGroup: 5530f693-5e22-48f0-ba53-d8e8999ec908 # Common
+handle: excludedPages
+instructions: ''
+name: 'Excluded pages'
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: false
+  source: null
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

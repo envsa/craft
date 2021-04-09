@@ -1,0 +1,11 @@
+enableVersioning: false
+handle: genericError
+name: 'Generic Error'
+propagationMethod: all
+siteSettings:
+  7aa2b387-b891-449b-bbbb-b709fb95595e: # craft3
+    enabledByDefault: true
+    hasUrls: true
+    template: error.twig
+    uriFormat: error
+type: single

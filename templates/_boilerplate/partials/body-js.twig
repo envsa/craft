@@ -1,10 +1,10 @@
 {# -- Global JS -- #}
-{{ craft.twigpack.includeJsModule('manifest.js') }}
+{# {{ craft.twigpack.includeJsModule('manifest.js') }}
 {{ craft.twigpack.includeJsModule('vendor.js') }}
-{{ craft.twigpack.includeJsModule('main.js') }}
+{{ craft.twigpack.includeJsModule('main.js') }} #}
 
 {# -- inline JS -- #}
 {# -- Shim to handle lazy image loading if native isn't available -- #}
-<script>
+{# <script>
   {{ craft.twigpack.includeFileFromManifest('inlinejs/lazyload-image-shim.min.js') }}
-</script>
+</script> #}

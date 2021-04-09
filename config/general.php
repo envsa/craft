@@ -34,7 +34,7 @@ return [
     'subRight' => true,
   ],
   'enableCsrfProtection' => true,
-  'errorTemplatePrefix' => 'errors/',
+  'errorTemplatePrefix' => '_errors/',
   'generateTransformsBeforePageLoad' => true,
   'loginPath' => 'login',
   'postLoginRedirect' => '/',

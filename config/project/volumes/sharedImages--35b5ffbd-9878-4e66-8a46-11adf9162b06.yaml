@@ -1,0 +1,83 @@
+fieldLayouts:
+  d6d46ea7-ef0c-4649-9b1b-32d807dbdb5f:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: a920bb04-faca-4f59-9a0a-a2e2a090fe23 # Alt text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 112c70eb-196d-49cf-8c69-cb6cd11432ac # Caption
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: da2fde99-98d1-4e82-b00c-5c792200f49f # Optimized general
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Optimized images'
+        sortOrder: 2
+handle: sharedImages
+hasUrls: true
+name: 'Shared images'
+settings:
+  addSubfolderToRootUrl: '1'
+  autoFocalPoint: ''
+  bucket: $S3_BUCKET
+  bucketSelectionMode: manual
+  cfDistributionId: $CLOUDFRONT_DISTRIBUTION_ID
+  cfPrefix: $CLOUDFRONT_PATH_PREFIX
+  expires: '6 months'
+  keyId: $S3_KEY_ID
+  makeUploadsPublic: ''
+  region: $S3_REGION
+  secret: $S3_SECRET
+  storageClass: ''
+  subfolder: shared/images
+sortOrder: 0
+titleTranslationKeyFormat: null
+titleTranslationMethod: null
+type: craft\awss3\Volume
+url: $CLOUDFRONT_URL

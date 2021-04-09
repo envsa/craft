@@ -1,0 +1,9 @@
+baseUrl: $SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en-AU
+name: craft3
+primary: true
+siteGroup: 0cf7cbe9-74ce-44c2-bbce-d1bf108b3eb2 # craft3
+sortOrder: 1

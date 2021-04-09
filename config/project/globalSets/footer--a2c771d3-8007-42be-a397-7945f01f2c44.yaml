@@ -1,0 +1,36 @@
+fieldLayouts:
+  0c6b2725-c24b-427c-95b2-d64c3f434029:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b7232602-e058-4dc6-b639-3e5dfb6ee3f0 # Acknowledgement image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 434cb523-f553-43e1-b517-b4350f11580e # Acknowledgement text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 906dff7a-94e7-43bb-a515-3feda5b3bbec # Footer links
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Main
+        sortOrder: 1
+handle: footer
+name: Footer

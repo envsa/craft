@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 7cc23e51-bc00-4d62-832b-6cc9c0b4d923 # Errors
+handle: errorHeadline
+instructions: ''
+name: 'Error headline'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

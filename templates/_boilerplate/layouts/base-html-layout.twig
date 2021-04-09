@@ -33,7 +33,7 @@
         {% endblock headCss %}
     </style>
     {% if devMode %}
-        {{ craft.twigpack.includeCssModule('main.css', false) }}
+        {# {{ craft.twigpack.includeCssModule('main.css', false) }} #}
     {% else %}
         {% include "_boilerplate/partials/critical-css" %}
     {% endif %}
