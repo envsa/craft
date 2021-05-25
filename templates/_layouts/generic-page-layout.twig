@@ -2,45 +2,56 @@
 {% extends '_boilerplate/layouts/base-html-layout' %}
 
 {# -- Any <meta> tags that should be included in the <head> -- #}
-{% block headMeta %}
-
-{% endblock %}
+{% block headMeta %}{% endblock %}
 
 {# -- Any <link> tags that should be included in the <head> -- #}
-{% block headlinks %}
-
-{% endblock %}
+{% block headlinks %}{% endblock %}
 
 {# -- Any CSS that should be included before </head> #}
-{% block headCss %}
-
-{% endblock %}
+{% block headCss %}{% endblock %}
 
 {# -- Page body -- #}
 {% block bodyHtml %}
-  {% include '_components/skip-to-content' %}
-  <div id="page-container" class="overflow-hidden leading-tight relative">
-    <div id="content-container">
-      {% include '_partials/header' %}
+	{% include '_components/skip-to-content' %}
 
-      <main id="main-content">
-        {# -- Primary content block -- #}
-        {% block content %}
+	{% if
+    sitewideAlert
+      and sitewideAlert.alertText
+      and sitewideAlert.startDate < now
+      and (sitewideAlert.endDate > now or sitewideAlert.endDate is null) %}
+		{% set showAlert = true %}
+		{% for page in sitewideAlert.excludedPages.all() %}
+			{% if entry is defined and page.id == entry.id %}
+				{% set showAlert = false %}
+			{% endif %}
+		{% endfor %}
 
-        {% endblock %}
-      </main>
-    </div>
+		{% if showAlert %}
+			{% include '_components/alert-banner' with {
+        alertId: 'sitewideAlert',
+        dismissible: sitewideAlert.dismiss,
+        text: sitewideAlert.alertText
+      } %}
+		{% endif %}
+	{% endif %}
 
-    {# -- Content that appears below the primary content block -- #}
-    {% block subcontent %}
+	<div id="page-container" class="overflow-hidden leading-tight relative">
+		<div id="content-container">
+			{% include '_partials/header' %}
 
-    {% endblock %}
+			<main
+				id="main-content">
+				{# -- Primary content block -- #}
+				{% block content %}{% endblock %}
+			</main>
+		</div>
 
-    {% include '_partials/footer' %}
-  </div>
+		{# -- Content that appears below the primary content block -- #}
+		{% block subcontent %}{% endblock %}
+
+		{% include '_partials/footer' %}
+	</div>
 {% endblock %}
 
 {# -- Any JavaScript that should be included before </body> -- #}
-{% block bodyJs %}
-
-{% endblock %}
+{% block bodyJs %}{% endblock %}

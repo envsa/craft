@@ -5,19 +5,15 @@
 {# -- Prefetch -- #}
 {% set prefetchUrls = [
   alias('@assetsUrl'),
+  alias('@cloudfrontUrl'),
   'https://www.google-analytics.com'
 ] %}
 
 {# -- Generic global variables -- #}
-{% set baseUrl = devMode
-    ? 'https://localhost:' ~ getenv('DEV_SERVER_PORT') ~ '/dist/'
-    : alias('@assetsUrl') ~ '/'
-%}
 
 {# -- Default classes -- #}
 {% set htmlClasses = [
     'no-js',
-    'no-svg'
 ] %}
 {% set bodyClass = '' %}
 

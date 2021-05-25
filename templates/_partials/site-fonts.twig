@@ -7,71 +7,72 @@
  # Remember to update the font variables in the src/scss directory if making
  # changes to font families
  #
+ # TODO: Figure out why some fonts 403 and some don't
  #}
+{% set fontPath = alias('@cloudfrontUrl') ~ '/dev/fonts/' %}
 {% set fonts = {
-    'proxima-nova': [
-        {
-            style: 'normal',
-            weight: '400',
-            local: 'ProximaNova-Regular',
-            src: {
-                woff2: '/dist/fonts/ProximaNovaRegular.woff2',
-                woff: '/dist/fonts/ProximaNovaRegular.woff'
-            },
-            preload: true
-        },
-        {
-            style: 'italic',
-            weight: '400',
-            local: 'ProximaNovaItalic',
-            src: {
-                woff2: '/dist/fonts/ProximaNovaItalic.woff2',
-                woff: '/dist/fonts/ProximaNovaItalic.woff'
-            },
-            preload: true
-        },
-        {
-            style: 'normal',
-            weight: '700',
-            local: 'ProximaNova-Bold',
-            src: {
-                woff2: '/dist/fonts/ProximaNovaBold.woff2',
-                woff: '/dist/fonts/ProximaNovaBold.woff'
-            },
-            preload: true
-        },
-        {
-            style: 'italic',
-            weight: '700',
-            local: 'ProximaNova-BoldItalic',
-            src: {
-                woff2: '/dist/fonts/ProximaNovaBoldItalic.woff2',
-                woff: '/dist/fonts/ProximaNovaBoldItalic.woff2'
-            },
-            preload: true
-        },
-        {
-            style: 'normal',
-            weight: '800',
-            local: 'ProximaNova-Extrabold',
-            src: {
-                woff2: '/dist/fonts/ProximaNovaExtrabold.woff2',
-                woff: '/dist/fonts/ProximaNovaExtrabold.woff'
-            },
-            preload: true
-        },
-        {
-            style: 'italic',
-            weight: '800',
-            local: 'ProximaNova-ExtraboldItalic',
-            src: {
-                woff2: '/dist/fonts/ProximaNovaExtraboldItalic.woff2',
-                woff: '/dist/fonts/ProximaNovaExtraboldItalic.woff2'
-            },
-            preload: true
-        }
-
-    ]
+  'proxima-nova': [
+    {
+      style: 'normal',
+      weight: '400',
+      local: 'ProximaNova-Regular',
+      src: {
+        woff2: fontPath ~ 'ProximaNovaRegular.woff2',
+        woff: fontPath ~ 'ProximaNovaRegular.woff'
+      },
+      preload: true
+    },
+    {
+      style: 'italic',
+      weight: '400',
+      local: 'ProximaNovaItalic',
+      src: {
+        woff2: fontPath ~ 'ProximaNovaItalic.woff2',
+        woff: fontPath ~ 'ProximaNovaItalic.woff'
+      },
+      preload: true
+    },
+    {
+      style: 'normal',
+      weight: '700',
+      local: 'ProximaNova-Bold',
+      src: {
+        woff2: fontPath ~ 'ProximaNovaBold.woff2',
+        woff: fontPath ~ 'ProximaNovaBold.woff'
+      },
+      preload: true
+    },
+    {
+      style: 'italic',
+      weight: '700',
+      local: 'ProximaNova-BoldItalic',
+      src: {
+        woff2: fontPath ~ 'ProximaNovaBoldItalic.woff2',
+        woff: fontPath ~ 'ProximaNovaBoldItalic.woff2'
+      },
+      preload: true
+    },
+    {
+      style: 'normal',
+      weight: '800',
+      local: 'ProximaNova-Extrabold',
+      src: {
+        woff2: fontPath ~ 'ProximaNovaExtrabold.woff2',
+        woff: fontPath ~ 'ProximaNovaExtrabold.woff'
+      },
+      preload: true
+    },
+    {
+      style: 'italic',
+      weight: '800',
+      local: 'ProximaNova-ExtraboldItalic',
+      src: {
+        woff2: fontPath ~ 'ProximaNovaExtraboldItalic.woff2',
+        woff: fontPath ~ 'ProximaNovaExtraboldItalic.woff2'
+      },
+      preload: true
+    }
+  ]
 } %}
 
 {% spaceless %}

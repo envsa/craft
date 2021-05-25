@@ -1,8 +1,8 @@
-dateModified: 1617952147
+dateModified: 1621928391
 email:
-  fromEmail: $EMAIL_ADDRESS
-  fromName: $EMAIL_NAME
-  replyToEmail: $EMAIL_ADDRESS
+  fromEmail: dew.internet@sa.gov.au
+  fromName: 'Craft Bot 🤖 '
+  replyToEmail: dew.internet@sa.gov.au
   template: mail/_entry
   transportSettings:
     encryptionMethod: tls
@@ -22,6 +22,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '1.2'
+  cookies:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   dumper:
     edition: standard
     enabled: true
@@ -112,7 +116,7 @@ plugins:
   publisher:
     edition: standard
     enabled: true
-    schemaVersion: 2.0.4
+    schemaVersion: 2.0.6
   redactor:
     edition: standard
     enabled: true
@@ -170,6 +174,10 @@ plugins:
       sitemapsEnabled: true
       socialMediaPreviewTarget: true
       submitSitemaps: true
+  twigpack:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   wordsmith:
     edition: standard
     enabled: true
@@ -179,5 +187,5 @@ system:
   live: true
   name: craft3
   retryDuration: null
-  schemaVersion: 3.6.7
+  schemaVersion: 3.6.8
   timeZone: Australia/Adelaide

@@ -1,3 +1,30 @@
-<h1>
-  Hello world
-</h1>
+{% extends "_layouts/generic-page-layout" %}
+
+{# -- Any <meta> tags that should be included in the <head> -- #}
+{% block headMeta %}{% endblock %}
+
+{# -- Any <link> tags that should be included in the <head> -- #}
+{% block headlinks %}{% endblock %}
+
+{# -- Any CSS that should be included before </head> #}
+{% block headCss %}{% endblock %}
+
+{# -- Page body -- #}
+{% block content %}
+	<div id="component-container"></div>
+	<section>
+		<div class="container mx-auto py-8">
+			<div class="text-center p-8 mb-8">
+				<h1 class="font-heading italic font-bold text-5xl pt-4">
+					Welcome to your new Craft site
+				</h1>
+				<p class="font-body text-xl pt-4">
+					Brought to you by the DEW web team.
+				</p>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+{# -- Any JavaScript that should be included before </body> -- #}
+{% block bodyJs %}{% endblock %}

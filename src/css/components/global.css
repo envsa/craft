@@ -1,0 +1,5 @@
+@layer base {
+  .no-js .js-only {
+    display: none !important;
+  }
+}

@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: e449bc51-6949-4b4c-8fbf-008e590c9935 # Hero banner
+            fieldUid: e449bc51-6949-4b4c-8fbf-008e590c9935 # Hero image
             instructions: null
             label: null
             required: false

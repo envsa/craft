@@ -5,26 +5,38 @@
     "type": "git",
     "url": "git+https://github.com/envsa/example-project.git"
   },
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {
-    "@envsa/eslint-config": "^2.0.1",
+  "scripts": {
+    "dev": "mix watch --hot",
+    "build": "mix --production",
+    "clean": "rm -rf web/dist/*"
+  },
+  "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
-    "autoprefixer": "^10.2.5",
-    "eslint": "^7.23.0",
-    "postcss": "^8.2.9",
-    "prettier": "^2.2.1",
-    "stylelint": "^13.12.0",
-    "tailwindcss": "^2.1.1"
+    "tailwindcss": "^2.1.2",
+    "tailwindcss-skip-link": "^1.0.1",
+    "vue": "^3.0.5",
+    "vue-confetti": "^2.0.8"
   },
-  "browserslist": [
-    "> 0.5% in AU",
-    "last 3 years",
-    "iOS >= 7",
-    "ie >= 11"
-  ],
+  "devDependencies": {
+    "@envsa/eslint-config": "^2.2.0",
+    "@vue/compiler-sfc": "^3.0.11",
+    "autoprefixer": "^10.2.5",
+    "eslint": "7.20.0",
+    "globby": "^11.0.3",
+    "laravel-mix": "^6.0.18",
+    "laravel-mix-criticalcss": "^1.0.1",
+    "laravel-mix-make-file-hash": "^2.2.0",
+    "laravel-mix-polyfill": "^3.0.0",
+    "postcss": "^8.2.12",
+    "postcss-import": "^14.0.1",
+    "postcss-nested": "^5.0.5",
+    "prettier": "^2.3.0",
+    "replace": "^1.2.1",
+    "stylelint": "^13.13.1",
+    "vue-loader": "^16.2.0"
+  },
   "eslintIgnore": [
     "/web/**/*",
     "/node_modules/**/*",

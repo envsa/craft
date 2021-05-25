@@ -3,6 +3,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
 
+{# -- Site fonts -- #}
+{% include "_boilerplate/partials/fonts" %}
+
 {# -- Prefetch & preconnect headers and links -- #}
 {% set headerLink = 'Link: ' %}
 {% for url in prefetchUrls %}

@@ -1,16 +1,13 @@
-{% import '_boilerplate/partials/cookies' as cookies %}
+{% set cssHash = craft.twigpack.getModuleHash('/css/app.css', 'legacy') %}
 
-{% if cookies.get('MAIN_CSS') %}
-  {# {{ craft.twigpack.includeCssModule('main.css', false) }} #}
+{% if cookies.get('critical-css') == cssHash %}
+  {{ craft.twigpack.includeCssModule('/css/app.css', false) }}
 {% else %}
-  {% do cookies.set('MAIN_CSS', '1', '+7 Days', '/', '', true, true) %}
+  {% do craft.cookies.setSecure('critical-css', '{{ cssHash }}', now | date_modify("+7 days").timestamp, '/', '', '', true) %}
 
   <!-- Critical css -->
-  {# {{
-    craft.twigpack.includeInlineCssTags(
-      '@webroot/dist/' ~ (entry.type.name|lower) ~ '_critical.min.css'
-    )
-  }} #}
+  {# https://nystudio107.com/docs/twigpack/#craft-twigpack-includecriticalcsstags #}
+  {{ craft.twigpack.includeCriticalCssTags() }}
 
-  {# {{ craft.twigpack.includeCssModule('main.css', true) }} #}
+  {{ craft.twigpack.includeCssModule('/css/app.css', true) }}
 {% endif %}

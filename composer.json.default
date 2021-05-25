@@ -1,26 +1,28 @@
 {
   "require": {
     "craftcms/aws-s3": "^1.2.0",
-    "craftcms/cms": "^3.6.0",
+    "craftcms/cms": "3.6.15",
     "craftcms/feed-me": "^4.1.0",
-    "craftcms/redactor": "^2.3.0",
-    "nystudio107/craft-imageoptimize": "^1.6.0",
+    "craftcms/redactor": "2.8.7",
+    "nystudio107/craft-imageoptimize": "1.6.33",
     "nystudio107/craft-minify": "^1.2.0",
-    "nystudio107/craft-retour": "^3.1.0",
-    "nystudio107/craft-seomatic": "^3.2.0",
+    "nystudio107/craft-retour": "3.1.53",
+    "nystudio107/craft-seomatic": "3.3.42",
     "nystudio107/craft-scripts": "^1.2.0",
     "studioespresso/craft-dumper": "^2.0.0",
     "topshelfcraft/wordsmith": "^3.0.0",
     "yiisoft/yii2-redis": "^2.0.0",
     "vlucas/phpdotenv": "^3.4.0",
-    "goldinteractive/craft3-publisher": "2.0.5",
+    "goldinteractive/craft3-publisher": "2.0.6",
     "jalendport/craft-hideadmin": "1.1.0",
     "jalendport/craft-lockout": "1.0.1",
     "mmikkel/incognito-field": "1.2.0",
-    "spicyweb/craft-neo": "2.9.5",
+    "spicyweb/craft-neo": "2.9.8",
     "utakka/redactor-anchors": "1.1.0",
     "verbb/expanded-singles": "1.1.3",
-    "vardump/activeusers": "1.1.1"
+    "vardump/activeusers": "1.1.1",
+    "nystudio107/craft-twigpack": "^1.2",
+    "nystudio107/craft-cookies": "^1.1"
   },
   "autoload": {
     "psr-4": {
@@ -30,7 +32,7 @@
   "config": {
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.3"
+      "php": "7.2.5"
     }
   },
   "scripts": {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * General Configuration
  *
@@ -14,6 +15,7 @@ return [
   // Craft config settings from .env variables
   'aliases' => [
     '@assetsUrl' => App::env('ASSETS_URL'),
+    '@cloudfrontUrl' => App::env('CLOUDFRONT_URL'),
     '@web' => App::env('SITE_URL'),
     '@webroot' => App::env('WEB_ROOT_PATH'),
   ],
@@ -38,6 +40,7 @@ return [
   'generateTransformsBeforePageLoad' => true,
   'loginPath' => 'login',
   'postLoginRedirect' => '/',
+  'defaultCpLanguage' => 'en-GB',
   'maxCachedCloudImageSize' => 3000,
   'maxRevisions' => 0,
   'maxUploadFileSize' => '100M',
