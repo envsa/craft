@@ -24,3 +24,24 @@ Then `cd` to your new project directory, and run Craft's `setup` console command
 
     cd PATH
     ./craft setup
+
+The next step will depend on your local dev setup, we'll be using [nitro](https://github.com/craftcms/nitro).
+
+    nitro add
+
+- Hostname: [craft3.nitro]
+- Web root: web
+- PHP version: 7.4
+- Add a db for the site: [craft3]
+- Update the .env file: [y]
+
+You will also need to update the .env file with the SITE_URL that you chose for the hostname.
+
+    nitro db import starterbase.sql
+
+When prompted use the db that you specified in the previous step [craft3]
+
+    nvm use
+    npm install
+    npx install-peerdeps --dev @envsa/eslint-config
+    npm run build
