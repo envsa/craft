@@ -1,5 +1,5 @@
 <template>
-    <confetti></confetti>
+  <confetti />
 </template>
 
 <script>
@@ -8,7 +8,7 @@ import { defineComponent } from 'vue';
 import Confetti from './components/Confetti.vue';
 export default defineComponent({
   components: {
-    'confetti': Confetti,
+    confetti: Confetti
   }
 });
 </script>

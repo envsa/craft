@@ -2,7 +2,6 @@ const mix = require('laravel-mix');
 const replace = require('replace');
 const path = require('path');
 const globby = require('globby');
-const webpack = require('webpack');
 const { config, source, devServer } = require('./mix.config');
 
 /**

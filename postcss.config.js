@@ -1,5 +1,3 @@
-const TailwindCss = require('tailwindcss');
-
 module.exports = {
   plugins: {
     'postcss-import': {

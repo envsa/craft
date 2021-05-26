@@ -1,29 +1,44 @@
 <template>
+  <div />
 </template>
 
 <script>
-  import {ref, defineComponent} from 'vue';
-  import Confetti from 'vue-confetti/src/confetti.js';
+import { ref, defineComponent } from 'vue';
+import Confetti from 'vue-confetti/src/confetti.js';
 
-  export default defineComponent({
-    setup() {
-      const confetti = ref(new Confetti());
+export default defineComponent({
+  setup() {
+    const confetti = ref(new Confetti());
 
-        return {
-          confetti
-        };
-      },
-      mounted() {
-      const config = {
-        defaultType: 'heart',
-        defaultSize: 30,
-        defaultColors: ['DodgerBlue', 'OliveDrab', 'Gold', 'pink', 'SlateBlue', 'lightblue', 'Violet', 'PaleGreen', 'SteelBlue', 'SandyBrown', 'Chocolate', 'Crimson'],
-      };
+    return {
+      confetti
+    };
+  },
+  mounted() {
+    66521;
+    const config = {
+      defaultType: 'heart',
+      defaultSize: 30,
+      defaultColors: [
+        'DodgerBlue',
+        'OliveDrab',
+        'Gold',
+        'pink',
+        'SlateBlue',
+        'lightblue',
+        'Violet',
+        'PaleGreen',
+        'SteelBlue',
+        'SandyBrown',
+        'Chocolate',
+        'Crimson'
+      ]
+    };
 
-      this.confetti.start(config);
-      setTimeout(() => {
-        this.confetti.stop();
-      }, 5000);
-    },
-  });
+    this.confetti.start(config);
+    setTimeout(() => {
+      this.confetti.stop();
+    }, 5000);
+  }
+});
 </script>

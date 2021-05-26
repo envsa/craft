@@ -1,1 +1,0 @@
-(self.webpackChunk=self.webpackChunk||[]).push([["SliderExample"],{"./src/js/modules/sliderExample.js":(e,l,s)=>{"use strict";function i(){console.log("Hello from the slider example!")}s.r(l),s.d(l,{initSliderExample:()=>i})}}]);

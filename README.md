@@ -20,10 +20,9 @@ Make sure that `PATH` is the path to your project, including the name you want f
 
     composer create-project envsa/craft craft3
 
-Then `cd` to your new project directory, and run Craft's `setup` console command to create your `.env` environments and optionally install:
+Say `no` when prompted to start the craft setuo, then `cd` to your new project directory.
 
     cd PATH
-    ./craft setup
 
 The next step will depend on your local dev setup, we'll be using [nitro](https://github.com/craftcms/nitro).
 
@@ -32,14 +31,21 @@ The next step will depend on your local dev setup, we'll be using [nitro](https:
 - Hostname: [craft3.nitro]
 - Web root: web
 - PHP version: 7.4
-- Add a db for the site: [craft3]
-- Update the .env file: [y]
+- Add a db for the site: [Y] [craft3]
+- Update the .env file: [Y]
+- Apply changes [Y]
 
-You will also need to update the .env file with the SITE_URL that you chose for the hostname.
+You will also need to update the `.env` file with the `SITE_URL` that you chose for the hostname.
 
     nitro db import starterbase.sql
 
 When prompted use the db that you specified in the previous step [craft3]
+
+and run Craft's `setup` console command to create your `.env` environments and optionally install:
+
+    ./craft setup
+
+some info about build
 
     nvm use
     npm install
