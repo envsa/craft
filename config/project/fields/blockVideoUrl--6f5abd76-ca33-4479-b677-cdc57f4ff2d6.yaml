@@ -1,0 +1,14 @@
+contentColumnType: string(255)
+fieldGroup: e122630f-ef1f-4011-b0d4-3e3487d928b3 # Blocks
+handle: blockVideoUrl
+instructions: 'Provide the youtube video URL to embed'
+name: 'Block video url'
+searchable: false
+settings:
+  maxLength: '255'
+  placeholder: null
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url

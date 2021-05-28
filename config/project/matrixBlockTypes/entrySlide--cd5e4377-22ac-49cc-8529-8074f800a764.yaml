@@ -1,0 +1,42 @@
+field: d1152498-6abe-47fa-b464-5bcdf21f8469 # Slider
+fieldLayouts:
+  9b9fec11-7371-4988-a96e-674a45d4b616:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 44c096ad-66c9-4893-a4c3-e389ce8c3d87 # Entry
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  44c096ad-66c9-4893-a4c3-e389ce8c3d87: # Entry
+    contentColumnType: string
+    fieldGroup: null
+    handle: entry
+    instructions: ''
+    name: Entry
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: entrySlide
+name: 'Entry slide'
+sortOrder: 2

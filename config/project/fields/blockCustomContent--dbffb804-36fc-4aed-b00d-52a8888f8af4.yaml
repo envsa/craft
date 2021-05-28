@@ -1,0 +1,20 @@
+contentColumnType: text
+fieldGroup: e122630f-ef1f-4011-b0d4-3e3487d928b3 # Blocks
+handle: blockCustomContent
+instructions: ''
+name: 'Block custom content'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  mode: readonly
+  modeOverride: '{{ currentUser.admin ? ''plain'' }}'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: mmikkel\incognitofield\fields\IncognitoFieldType

@@ -1,0 +1,23 @@
+<a href="{{ href }}" class="relative w-full h-44 lg:h-80 overflow-hidden block">
+	{% if image %}
+		{% set optimizedImages = image.optimizedHeroSlider ?? null %}
+		<div>
+			<picture>
+				<source srcset="{{ optimizedImages.srcsetWebP() }}" sizes="100vw" type="image/webp"/>
+				<img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" sizes="100vw" class="object-cover"/>
+			</picture>
+		</div>
+		<div class="absolute top-0 left-0 lg:flex w-1/2 bg-white block overflow-hidden" style="border-top-right-radius: 1500px; top: -70px; height: 1500px"></div>
+
+		<div class="absolute top-0 left-0 h-full lg:flex w-1/2 p-16 flex-col justify-center space-y-4">
+			<h2 class="w-7/12 text-3xl text-primary-500">{{ heading }}</h2>
+			{% if subHeading %}
+				<p class="w-5/6">{{ subHeading }}</p>
+			{% endif %}
+		</div>
+	{% endif %}
+	<div class="flex flex-col w-full lg:hidden px-16 py-10">
+		<h2 class="text-3xl text-primary-500">{{ heading }}</h2>
+		<p>{{ subHeading }}</p>
+	</div>
+</a>

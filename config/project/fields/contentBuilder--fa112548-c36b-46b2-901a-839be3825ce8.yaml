@@ -3,7 +3,7 @@ fieldGroup: 5530f693-5e22-48f0-ba53-d8e8999ec908 # Common
 handle: contentBuilder
 instructions: ''
 name: 'Content builder'
-searchable: false
+searchable: true
 settings:
   maxBlocks: ''
   maxLevels: ''

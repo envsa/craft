@@ -1,6 +1,18 @@
 enableVersioning: true
 handle: pages
 name: Pages
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{ url }'
+      -
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
   7aa2b387-b891-449b-bbbb-b709fb95595e: # craft3
@@ -8,4 +20,7 @@ siteSettings:
     hasUrls: true
     template: _pages/entry
     uriFormat: '{% if object.level == 1 %}{slug}{% else %}{parent.uri}/{slug}{% endif %}'
-type: channel
+structure:
+  maxLevels: null
+  uid: 41a04222-5158-4fef-9c68-60a33ece999e
+type: structure

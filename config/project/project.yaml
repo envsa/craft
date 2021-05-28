@@ -1,4 +1,4 @@
-dateModified: 1621928391
+dateModified: 1622186460
 email:
   fromEmail: dew.internet@sa.gov.au
   fromName: 'Craft Bot 🤖 '
@@ -41,6 +41,81 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 4.3.0
+  freeform:
+    edition: pro
+    enabled: true
+    licenseKey: K2X2NDMCVJ84XIGX3PVDPY93
+    schemaVersion: 3.3.1
+    settings:
+      ajaxByDefault: true
+      alertNotificationRecipients: dew.internet@sa.gov.au
+      autoScrollToErrors: true
+      badgeType: all
+      blockedEmails: null
+      blockedEmailsError: 'Invalid Email Address'
+      blockedIpAddresses: null
+      blockedKeywords: null
+      blockedKeywordsError: 'Invalid Entry Data'
+      clientDigestFrequency: 1
+      clientDigestRecipients: ''
+      customErrorMessage: null
+      customHoneypotName: null
+      defaultTemplates: true
+      defaultView: dashboard
+      digestFrequency: 1
+      digestOnlyOnProduction: false
+      digestRecipients: ''
+      displayFeed: true
+      emailTemplateDirectory: null
+      emailTemplateStorage: db
+      fieldDisplayOrder: name
+      fillWithGet: false
+      footerScripts: false
+      formFieldShowOnlyAllowedForms: false
+      formSubmitDisable: true
+      formSubmitExpiration: null
+      formTemplateDirectory: null
+      formattingTemplate: tailwind.html
+      freeformHoneypot: true
+      freeformHoneypotEnhancement: true
+      hideBannerDemo: true
+      hideBannerOldFreeform: false
+      minimumSubmitTime: null
+      pluginName: ''
+      purgableSpamAgeInDays: null
+      purgableSubmissionAgeInDays: null
+      purgableUnfinalizedAssetAgeInMinutes: 180
+      recaptchaBehaviour: display_error
+      recaptchaEnabled: false
+      recaptchaErrorMessage: 'Please verify that you are not a robot.'
+      recaptchaKey: null
+      recaptchaLazyLoad: false
+      recaptchaMinScore: 0.5
+      recaptchaSecret: null
+      recaptchaSize: normal
+      recaptchaTheme: light
+      recaptchaType: v2_checkbox
+      rememberPageSubmitOrder: true
+      removeNewlines: false
+      renderFormHtmlInCpViews: true
+      salesforce_client_id: null
+      salesforce_client_secret: null
+      salesforce_password: null
+      salesforce_username: null
+      scriptInsertLocation: footer
+      scriptInsertType: pointers
+      sessionEntryMaxCount: 50
+      sessionEntryTTL: 10800
+      showErrorsForBlockedEmails: false
+      showErrorsForBlockedKeywords: false
+      showTutorial: false
+      spamFolderEnabled: true
+      spamProtectionBehaviour: simulate_success
+      submissionThrottlingCount: null
+      submissionThrottlingTimeFrame: null
+      twigInHtml: true
+      twigInHtmlIsolatedMode: true
+      updateSearchIndexes: true
   hide-admin:
     edition: standard
     enabled: true
@@ -139,7 +214,7 @@ plugins:
       addHrefLang: true
       addPaginatedHreflang: true
       addXDefaultHrefLang: true
-      cpTitlePrefix: '⚙ '
+      cpTitlePrefix: '⚙️ '
       cspNonce: ''
       cspScriptSrcPolicies:
         -
@@ -147,7 +222,7 @@ plugins:
             -
               - policy
               - '''self'''
-      devModeCpTitlePrefix: '&#x1f6a7;⚙ '
+      devModeCpTitlePrefix: '&#x1f6a7;⚙️ '
       devModeTitlePrefix: '&#x1f6a7; '
       displayAnalysisSidebar: true
       displayPreviewSidebar: true
@@ -175,6 +250,10 @@ plugins:
       socialMediaPreviewTarget: true
       submitSitemaps: true
   twigpack:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  typedlinkfield:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0

@@ -1,12 +1,12 @@
 childBlocks: ''
-field: 9ccb3478-824d-4f4b-a1ca-7589415a1339 # Content builder
+field: fa112548-c36b-46b2-901a-839be3825ce8 # Content builder
 fieldLayouts:
-  2977a957-31c1-4ef4-91e6-858edec1167c:
+  645c9c9e-a29c-4cbb-9865-5a26724d85fc:
     tabs:
       -
         elements:
           -
-            fieldUid: fb00c1dd-4f98-427b-a2ba-4b53503d8cb5 # Rich text
+            fieldUid: ea95f70b-ca9b-48af-bac4-994cc7cc0a80 # Block text
             instructions: null
             label: null
             required: false

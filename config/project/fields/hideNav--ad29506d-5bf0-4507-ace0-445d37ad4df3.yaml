@@ -6,8 +6,8 @@ name: 'Hide from navigation'
 searchable: false
 settings:
   default: false
-  offLabel: null
-  onLabel: null
+  offLabel: Show
+  onLabel: Hide
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Lightswitch

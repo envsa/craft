@@ -34,22 +34,18 @@
       } %}
 		{% endif %}
 	{% endif %}
+	<div id="page-container" class="min-h-screen bg-gray-600 xl:pb-10 overflow-hidden leading-tight">
+		<div id="content-container" class="max-w-7xl mx-auto">
+			{% include '_components/header' %}
 
-	<div id="page-container" class="overflow-hidden leading-tight relative">
-		<div id="content-container">
-			{% include '_partials/header' %}
-
-			<main
-				id="main-content">
-				{# -- Primary content block -- #}
-				{% block content %}{% endblock %}
+			<main id="main-content" class="bg-white">
+				{% block content %}
+					{# -- primary content block -- #}
+				{% endblock %}
 			</main>
+
+			{% include "_components/footer" %}
 		</div>
-
-		{# -- Content that appears below the primary content block -- #}
-		{% block subcontent %}{% endblock %}
-
-		{% include '_partials/footer' %}
 	</div>
 {% endblock %}
 
