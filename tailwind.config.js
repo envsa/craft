@@ -1,4 +1,3 @@
-const { blue } = require('tailwindcss/colors');
 const colors = require('tailwindcss/colors');
 
 const customColors = {
@@ -43,6 +42,19 @@ module.exports = {
         700: '#144B46',
         800: '#0E332F',
         900: '#071A19'
+      },
+      secondary: {
+        DEFAULT: '#9E948B',
+        50: '#FFFFFF',
+        100: '#FBFAFA',
+        200: '#E4E1DE',
+        300: '#CCC7C3',
+        400: '#B5AEA7',
+        500: '#9E948B',
+        600: '#867A70',
+        700: '#6A6159',
+        800: '#4E4842',
+        900: '#332E2A'
       }
     },
     extend: {
@@ -52,8 +64,9 @@ module.exports = {
     }
   },
   variants: {
-    extend: {},
-    display: ['group-hover']
+    extend: {
+      display: ['group-hover']
+    }
   },
   plugins: [
     require('@tailwindcss/typography'),

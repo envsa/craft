@@ -1,13 +1,18 @@
 contentColumnType: text
 fieldGroup: 3004f128-4dcc-4b0f-9369-4c7f87cb3839 # Optimized images
-handle: optimizedHeroSlider
+handle: optimizedHeroImage
 instructions: ''
-name: 'Optimized hero slider'
+name: 'Optimized hero image'
 searchable: false
 settings:
   displayDominantColorPalette: '1'
   displayLazyLoadPlaceholderImages: '1'
   displayOptimizedImageVariants: '1'
+  fieldVolumeSettings:
+    __assoc__:
+      -
+        - sharedImages
+        - '*'
   variants:
     -
       __assoc__:

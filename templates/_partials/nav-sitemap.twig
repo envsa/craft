@@ -1,0 +1,26 @@
+{# TODO: make this a global matrix that can be looped over #}
+{% set sitemap = footer.sitemap.all() %}
+
+{% if sitemap|length %}
+	<nav class="bg-gray-700 px-5 pt-8">
+		<ul class="flex flex-wrap -mb-10 md:mb-0 md:grid md:grid-cols-4 md:gap-8 lg:grid-cols-6 ">
+			{% for block in sitemap %}
+				{% set heading = block.heading.one() %}
+				{% set subPages = block.subPages.all() %}
+				<li class=" pb-10 text-white border-l-2 border-primary pl-5 w-1/2 mb-10 md:mb-0 md:h-full md:w-full {{ loop.first ? 'lg:col-start-3' }}">
+					<h2 class="text-xs font-semibold tracking-wider uppercase mb-6">
+						<a href="{{ heading.url }}" class="hover:underline">{{ heading.teaserTitle ?? heading.title }}</a>
+					</h2>
+					<ul class="text-xs space-y-2">
+						{% for entry in subPages %}
+							<li>
+								<a href="{{ entry.url }}" class="hover:underline">{{ entry.teaserTitle ?? entry.title }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+
+{% endif %}

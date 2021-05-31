@@ -58,7 +58,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 80b45847-81ff-4778-9ce0-da1a73708aad # Optimized hero slider
+            fieldUid: 80b45847-81ff-4778-9ce0-da1a73708aad # Optimized hero image
             instructions: null
             label: null
             required: false

@@ -22,6 +22,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 0fef2185-d09c-42d9-9624-0a21ac6fb75d # Sitemap
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 906dff7a-94e7-43bb-a515-3feda5b3bbec # Footer links
             instructions: null
             label: null

@@ -1,5 +1,5 @@
 <section id="hero-slider">
-	<swiper :slides-per-view="1" navigation :pagination="{ clickable: true }">
+	<swiper :autoplay="{'delay': 2500,'disableOnInteraction': false}" :navigation="true" :loop="true">
 		{% for slide in slides %}
 			{% switch slide.type %}
 				{% case "customSlide" %}
@@ -15,7 +15,7 @@
 					{% set heading = entry.teaserTitle ?? entry.title %}
 					{% set subHeading = entry.teaserText ?? null %}
 			{% endswitch %}
-			<swiper-slide>
+			<swiper-slide :class="h-full">
 				{% include "_partials/slide" %}
 			</swiper-slide>
 		{% endfor %}

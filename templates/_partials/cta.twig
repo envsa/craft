@@ -1,0 +1,12 @@
+{% set icon %}
+{% include '_svg/envsa-icon_' ~ block.icon.value ignore missing with {classes: 'w-8 h-8'}%}
+{% endset %}
+
+{% set text = block.entry.getText() %}
+
+{% if icon and text %}
+	<a href="#" class="text-primary hover:underline flex flex-grow px-4 py-2 items-center justify-center lg:justify-start w-1/3 lg:w-full">
+		<span>{{ icon }}</span>
+		<span class="md:text-xl pl-4">{{ text }}</span>
+	</a>
+{% endif %}

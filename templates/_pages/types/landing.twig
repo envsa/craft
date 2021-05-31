@@ -1,0 +1,20 @@
+{% extends '_layouts/generic-page-layout' %}
+
+{% block content %}
+	<div class="pt-4 pr-8 px-5 space-y-5">
+		<h1 class="text-4xl text-primary">
+			{{ entry.title }}
+		</h1>
+		{% if entry.contentBuilder %}
+			{% set contentBuilder = entry.contentBuilder.level(1).all() %}
+			{% include '_partials/content-builder' with {
+        blocks: contentBuilder
+      } %}
+		{% endif %}
+	</div>
+	<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 pr-8 px-5">
+		{% for entry in entry.children %}
+			{% include '_partials/tile-primary' %}
+		{% endfor %}
+	</div>
+{% endblock %}

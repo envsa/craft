@@ -1,3 +1,13 @@
-<header>
-    {# <h2>Header</h2> #}
+{% set siteLogo = site.siteLogo.one() %}
+<header class="bg-primary">
+
+	<div class="flex justify-between items-end h-30">
+		<img class="self-center ml-5" src="{{ siteLogo.url }}" alt="{{ siteLogo.altText ?? siteName }}"/>
+
+		<div class="px-5 py-3">
+			{% include "_partials/social" %}
+		</div>
+	</div>
+
+	{% include "_partials/nav-primary" %}
 </header>

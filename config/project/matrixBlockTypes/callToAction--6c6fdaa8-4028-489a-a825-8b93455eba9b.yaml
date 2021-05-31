@@ -1,0 +1,284 @@
+field: e3b9ee75-5993-484e-a207-ff8bccb50b24 # CTAs
+fieldLayouts:
+  39db13dc-e259-474f-9427-3ac315713c08:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 33d4cc96-f18c-42a4-a20e-17e24d9fd921 # Entry
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7476c3db-c1e9-4de5-88bd-7d6266495584 # Icon
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  33d4cc96-f18c-42a4-a20e-17e24d9fd921: # Entry
+    contentColumnType: text
+    fieldGroup: null
+    handle: entry
+    instructions: ''
+    name: Entry
+    searchable: false
+    settings:
+      allowCustomText: '1'
+      allowTarget: ''
+      allowedLinkNames:
+        3: entry
+      autoNoReferrer: ''
+      defaultLinkName: entry
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: ''
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: typedlinkfield\fields\LinkField
+  7476c3db-c1e9-4de5-88bd-7d6266495584: # Icon
+    contentColumnType: string
+    fieldGroup: null
+    handle: icon
+    instructions: ''
+    name: Icon
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Calendar
+            -
+              - value
+              - calendar
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Chat
+            -
+              - value
+              - chat
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Dollar
+            -
+              - value
+              - currency-dollar
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Location marker'
+            -
+              - value
+              - location-marker
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - NPWSSA
+            -
+              - value
+              - npwssa
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Particle
+            -
+              - value
+              - particle
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Road conditions'
+            -
+              - value
+              - road-conditions
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Search
+            -
+              - value
+              - search
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Speakerphone
+            -
+              - value
+              - speakerphone
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Tickets
+            -
+              - value
+              - tickets
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Volunteer
+            -
+              - value
+              - volunteer
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Weather
+            -
+              - value
+              - weather
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: callToAction
+name: 'Call to action'
+sortOrder: 1
