@@ -1,5 +1,5 @@
-{% set pages = craft.entries.section('pages').all() %}
-
+{% set parent = craft.entries().level(1).ancestorOf(entry).one() %}
+{% set siblings = craft.entries().descendantOf(parent).hideNav('not true').all() %}
 {% set ancestors = craft.entries().ancestorOf(entry) %}
 <div class="hidden sticky inset-0">
 	<button id="menu-toggle" class="flex w-full justify-end px-3 py-3 bg-white lg:bg-transparent border rounded border-gray-600 hover:border-purple-500 appearance-none focus:outline-none">
@@ -8,52 +8,54 @@
 		</svg>
 	</button>
 </div>
+
 <div class="w-full sticky inset-0 h-auto overflow-x-hidden overflow-y-hidden block mt-0 top-5" id="menu-content">
 
 	<nav class="flex" aria-label="Sidenav">
-		<ol class="list-reset space-y-2">
-			{% nav page in pages %}
+		<ul class="list-reset space-y-2">
+			{% nav page in siblings %}
+			{# define vue variables #}
+			{% set headerClass = "flex space-x-1 items-start text-primary hover:text-primary-300 hover:underline " %}
+			{% set directAncestor = ancestors.id(page.id).one() != null ? true : false %}
+			{% set collapsible = page.children.count() == 0 ? false : true %}
+
+			{% if entry.url == page.url %}
+				{% set headerClass = headerClass ~ "font-bold underline" %}
+			{% else %}
+				{% set headerClass = headerClass ~ "no-underline" %}
+			{% endif %}
 			<li>
-				{% set directAncestor = ancestors.id(page.id).one() != null ? true : false %}
-				{% set collapsible = page.children.count() == 0 ? false : true %}
-				{% set headerClass = "flex space-x-1 items-start text-primary hover:text-primary-300 hover:underline " %}
+				<div class="collapse">
+					<Collapse header-class="{{ headerClass | json_encode }}" content-class="pt-2" :visible="{{ directAncestor | json_encode }}" :collapsible={{ collapsible | json_encode }}>
+						{% if collapsible %}
+							<template v-slot:header>
+								<span class="text-xs">{{page.title}}</span>
+							</template>
+							<template v-slot:icon>
+								<svg class="fill-current w-4" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+								</svg>
+							</template>
+						{% else %}
+							<template v-slot:link>
+								<a href="{{ page.url }}" class="text-xs">{{page.title}}</a>
+							</template>
+							<template v-slot:icon>
+								<div class="w-4"></div>
+							</template>
+						{% endif %}
 
-				{% if entry.url == page.url %}
-					{% set headerClass = headerClass ~ "font-bold underline" %}
-				{% else %}
-					{% set headerClass = headerClass ~ "no-underline" %}
-				{% endif %}
-
-
-				<collapse header-class="{{ headerClass | json_encode }}" content-class="pt-2" :visible="{{ directAncestor | json_encode }}" :collapsible={{ collapsible | json_encode }}>
-					{% if collapsible %}
-						<template v-slot:header>
-							<span class="text-xs">{{page.title}}</span>
+						{% ifchildren %}
+						<template v-slot:content>
+							<ol class="ml-3 list-reset space-y-2">
+								{% children %}
+							</ol>
 						</template>
-						<template v-slot:icon>
-							<svg class="fill-current w-4" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-							</svg>
-						</template>
-					{% else %}
-						<template v-slot:link>
-							<a href="{{ page.url }}" class="text-xs">{{page.title}}</a>
-						</template>
-						<template v-slot:icon>
-							<div class="w-4"></div>
-						</template>
-					{% endif %}
-
-					{% ifchildren %}
-					<template v-slot:content>
-						<ol class="ml-3 list-reset space-y-2">
-							{% children %}
-						</ol>
-					</template>
-					{% endifchildren %}
-				</collapse>
+						{% endifchildren %}
+					</Collapse>
+				</div>
 			</li>
 			{% endnav %}
-		</ol>
+		</ul>
 	</nav>
 </div>

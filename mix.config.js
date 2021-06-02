@@ -3,21 +3,26 @@ const path = require('path');
 const siteUrl = new URL(process.env.SITE_URL);
 
 const config = {
-  publicPath: 'web/dist',
+  publicPath: 'web/dist/',
   buildDir: process.env.ASSETS_URL,
   criticalDomain: siteUrl,
   criticalCssSuffix: '_critical.min',
   criticalCssUrls: [
-    // https://nystudio107.com/docs/twigpack/#craft-twigpack-includecriticalcsstags
-    { url: '/', template: 'index' }
-    // { urlPath: '/know-before-you-go/dogs-in-parks', label: 'general' }
+    { url: '/', template: 'homepage' },
+    { url: '/visit', template: 'landing' },
+    {
+      url: '/visit/adelaide-botanic-garden/visitor-information/planning-your-visit',
+      template: 'general'
+    }
   ],
   jsFramework: 'vue' // 'vue', 'react', or ''
 };
 
 const source = {
   scripts: path.resolve('src/js'),
-  styles: path.resolve('src/css')
+  styles: path.resolve('src/css'),
+  images: path.resolve('src/images'),
+  static: path.resolve('src/static')
 };
 
 const devServer = {

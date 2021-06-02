@@ -24,6 +24,14 @@ const main = async () => {
       instance.initAlertBanners();
     });
   }
+
+  if (document.querySelector('.collapse')) {
+    import('./modules/collapse' /* webpackChunkName: "collapse" */).then(
+      (instance) => {
+        instance.initCollapse('.collapse');
+      }
+    );
+  }
 };
 
 main().then(() => {});

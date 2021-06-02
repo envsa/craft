@@ -15,7 +15,7 @@
 						{% for child in children %}
 							<ul class="text-white">
 								<li>
-									<a href="{{ child.url }}" class="block px-5 py-2 bg-primary-500 hover:bg-primary-600">{{ page.teaserTitle ?? child.title }}</a>
+									<a href="{{ child.url }}" class="block px-5 py-2 bg-primary-500 hover:bg-primary-600">{{ child.teaserTitle ?? child.title }}</a>
 									<ul class="text-white py-2 space-y-1">
 										{% for sub_child in child.children.hideNav('not true').all() %}
 											<a href="{{sub_child.url}}" class="block px-5 hover:underline">{{ sub_child.teaserTitle ?? sub_child.title }}</a>

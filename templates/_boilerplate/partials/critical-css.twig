@@ -1,13 +1,14 @@
 {% set cssHash = craft.twigpack.getModuleHash('/css/app.css', 'legacy') %}
 
-{% if cookies.get('critical-css') == cssHash %}
-  {{ craft.twigpack.includeCssModule('/css/app.css', false) }}
+{% if craft.cookies.get('critical-css') == cssHash %}
+	{{ craft.twigpack.includeCssModule('/css/app.css', false) }}
 {% else %}
-  {% do craft.cookies.setSecure('critical-css', '{{ cssHash }}', now | date_modify("+7 days").timestamp, '/', '', '', true) %}
+	{% do craft.cookies.setSecure('critical-css', '{{ cssHash }}', now | date_modify("+7 days").timestamp, '/', '', '', true) %}
 
-  <!-- Critical css -->
-  {# https://nystudio107.com/docs/twigpack/#craft-twigpack-includecriticalcsstags #}
-  {{ craft.twigpack.includeCriticalCssTags() }}
+	{# https://nystudio107.com/docs/twigpack/#craft-twigpack-includecriticalcsstags #}
+	{% if entry is defined %}
+		{{ craft.twigpack.includeInlineCssTags('@webroot/dist/' ~ (entry.type.handle) ~ '_critical.min.css') }}
+	{% endif %}
 
-  {{ craft.twigpack.includeCssModule('/css/app.css', true) }}
+	{{ craft.twigpack.includeCssModule('/css/app.css', true) }}
 {% endif %}

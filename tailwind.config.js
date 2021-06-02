@@ -20,8 +20,6 @@ module.exports = {
       './src/vue/**/*.{vue,html}',
       './templates/**/*.{twig,html}'
     ],
-    layers: ['base', 'components', 'utilities'],
-    mode: 'layers',
     options: {
       safelist: [/^ff-/],
       whitelist: ['./src/css/components/*.css']

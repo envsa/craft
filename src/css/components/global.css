@@ -1,6 +1,0 @@
-/* stylelint-disable declaration-no-important */
-@layer base {
-  .no-js .js-only {
-    display: none !important;
-  }
-}

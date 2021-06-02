@@ -1,21 +1,41 @@
-# Development Environment #
-############################################
-/node_modules
+# Craft 3 .gitignore
 
-# Craft #
-############################################
-/.env
-/.idea
+# CRAFT ENVIRONMENT
+.env*
+!.env.example
+
+# COMPOSER
 /vendor
-/config/license.key
 
-# OS generated files #
-############################################
+# ASSETS
+/web/cpresources/*
+/web/dist/*
+/web/hot
+/web/mix-manifest.json
+
+# BUILD FILES
+/bower_components/*
+/node_modules/*
+/build/*
+/yarn-error.log
+/npm-debug.log
+
+# MISC FILES
+.cache
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-.vs-code
+.idea
+_junk/
+.project
+.settings
+*.esproj
+*.sublime-workspace
+*.sublime-project
+*.tmproj
+*.tmproject
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+config.codekit3
+prepros-6.config

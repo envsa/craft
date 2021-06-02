@@ -2,12 +2,12 @@
 {% set sitemap = footer.sitemap.all() %}
 
 {% if sitemap|length %}
-	<nav class="bg-gray-700 px-5 pt-8">
-		<ul class="flex flex-wrap -mb-10 md:mb-0 md:grid md:grid-cols-4 md:gap-8 lg:grid-cols-6 ">
+	<nav class="bg-gray-700 px-5 pt-8 lg:flex justify-end">
+		<ul class="flex flex-wrap -mb-10 md:mb-0 md:grid md:grid-cols-4 md:gap-8 lg:w-3/4">
 			{% for block in sitemap %}
 				{% set heading = block.heading.one() %}
 				{% set subPages = block.subPages.all() %}
-				<li class=" pb-10 text-white border-l-2 border-primary pl-5 w-1/2 mb-10 md:mb-0 md:h-full md:w-full {{ loop.first ? 'lg:col-start-3' }}">
+				<li class=" pb-10 text-white border-l-2 border-primary pl-5 w-1/2 mb-10 md:mb-0 md:h-full md:w-full">
 					<h2 class="text-xs font-semibold tracking-wider uppercase mb-6">
 						<a href="{{ heading.url }}" class="hover:underline">{{ heading.teaserTitle ?? heading.title }}</a>
 					</h2>

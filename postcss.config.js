@@ -1,10 +1,15 @@
 module.exports = {
-  plugins: {
-    'postcss-import': {
-      path: ['./node_modules']
-    },
-    tailwindcss: {},
-    'postcss-nested': {},
-    autoprefixer: {}
-  }
+  plugins: [
+    'tailwindcss',
+    'autoprefixer',
+    [
+      'postcss-preset-env',
+      {
+        stage: 3,
+        features: {
+          'nesting-rules': true
+        }
+      }
+    ]
+  ]
 };

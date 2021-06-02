@@ -1,9 +1,0 @@
-@layer components {
-  .alert-banner--hidden {
-    @apply hidden;
-
-    .no-js & {
-      @apply block;
-    }
-  }
-}

@@ -2,6 +2,7 @@ const mix = require('laravel-mix');
 const replace = require('replace');
 const path = require('path');
 const globby = require('globby');
+const webpack = require('webpack');
 const { config, source, devServer } = require('./mix.config');
 
 /**
@@ -12,7 +13,8 @@ const { config, source, devServer } = require('./mix.config');
  * [✅] Styles: CriticalCSS
  * [✅] Inline js processing
  * [✅] Devserver HMR
- * [] Static
+ * [ ] Images
+ * [✅] Static
  */
 
 mix.setPublicPath(config.publicPath);
@@ -78,7 +80,7 @@ inlineScriptFiles.forEach((file) => {
  */
 // Get a list of style files within the base styles folder
 // ignore files with a preceding underscore
-const styleFiles = globby.sync(`${source.styles}/[^_]*.css`);
+const styleFiles = globby.sync(`${source.styles}/[^_]*.{css,pcss}`);
 styleFiles.forEach((file) => {
   mix.postCss(file, path.join(config.publicPath, '/css/'));
 });
@@ -104,6 +106,20 @@ if (config.criticalDomain && config.criticalCssUrls.length) {
     }
   });
 }
+
+/**
+ * Images
+ * https://laravel-mix.com/docs/6.0/copying-files
+ *
+ * TODO: update this to handle basic image processing too
+ */
+mix.copyDirectory(source.images, path.join(config.publicPath, 'images'));
+
+/**
+ * Static
+ * https://laravel-mix.com/docs/6.0/copying-files
+ */
+mix.copyDirectory(source.static, path.join(config.publicPath, 'static'));
 
 mix.webpackConfig({
   target: 'web',
@@ -132,13 +148,20 @@ mix.webpackConfig({
   },
   infrastructureLogging: {
     level: 'log'
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false
+    })
+  ]
 });
 
 if (mix.inProduction()) {
   mix.webpackConfig({
     output: {
-      chunkFilename: 'js/modules/[name].[chunkhash:8].js',
+      publicPath: '/dist/',
+      chunkFilename: 'js/modules/[name].[chunkhash:20].js',
       clean: true
     },
     optimization: {
@@ -146,13 +169,14 @@ if (mix.inProduction()) {
       moduleIds: 'named'
     }
   });
-
   mix.version();
   mix.then(() => {
     const convertToFileHash = require('laravel-mix-make-file-hash');
     convertToFileHash({
       publicPath: config.publicPath,
-      manifestFilePath: path.resolve(config.publicPath, 'mix-manifest.json')
+      manifestFilePath: path.resolve(config.publicPath, 'mix-manifest.json'),
+      blacklist: ['js/modules/**/*.js', 'images/**/*', 'static/**/*'],
+      keepBlacklistedEntries: false
     });
   });
 }
