@@ -1,5 +1,3 @@
-sloc)  1.23 KB
-
 {
   "name": "envsa/craft",
   "description": "envsa Craft 3 CMS scaffolding project",
@@ -33,7 +31,7 @@ sloc)  1.23 KB
   "config": {
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.3"
+      "php": "7.2.5"
     }
   },
   "scripts": {
