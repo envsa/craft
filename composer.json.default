@@ -1,32 +1,38 @@
 
 {
-  "name": "envsa/craft",
-  "description": "envsa Craft 3 CMS scaffolding project",
-  "version": "2.0.0",
-  "keywords": [
-    "craft",
-    "cms",
-    "craftcms",
-    "project"
-  ],
-  "license": "CC-BY-3.0",
-  "homepage": "https://craftcms.com/",
-  "type": "project",
-  "support": {
-    "email": "support@craftcms.com",
-    "issues": "https://github.com/craftcms/cms/issues",
-    "forum": "https://craftcms.stackexchange.com/",
-    "source": "https://github.com/craftcms/cms",
-    "docs": "https://craftcms.com/docs",
-    "rss": "https://craftcms.com/changelog.rss"
-  },
   "require": {
+    "craftcms/aws-s3": "^1.2.0",
     "craftcms/cms": "^3.6.0",
-    "vlucas/phpdotenv": "^3.4.0"
+    "craftcms/feed-me": "^4.1.0",
+    "craftcms/redactor": "^2.8.0",
+    "nystudio107/craft-imageoptimize": "^1.6.0",
+    "nystudio107/craft-minify": "^1.2.0",
+    "nystudio107/craft-retour": "^3.1.0",
+    "nystudio107/craft-seomatic": "^3.3.0",
+    "nystudio107/craft-scripts": "^1.2.0",
+    "studioespresso/craft-dumper": "^2.0.0",
+    "topshelfcraft/wordsmith": "^3.0.0",
+    "yiisoft/yii2-redis": "^2.0.0",
+    "vlucas/phpdotenv": "^3.4.0",
+    "goldinteractive/craft3-publisher": "^2.0.0",
+    "jalendport/craft-hideadmin": "^1.1.0",
+    "jalendport/craft-lockout": "^1.0.0",
+    "mmikkel/incognito-field": "^1.2.0",
+    "spicyweb/craft-neo": "^2.9.0",
+    "utakka/redactor-anchors": "^1.1.0",
+    "verbb/expanded-singles": "^1.1.0",
+    "vardump/activeusers": "^1.1.0",
+    "nystudio107/craft-twigpack": "^1.2",
+    "nystudio107/craft-cookies": "^1.1",
+    "sebastianlenz/linkfield": "^1.0.0",
+    "solspace/craft-freeform": "^3.11.0",
+    "vaersaagod/matrixmate": "^1.2.0",
+    "verbb/smith": "^1.1.0",
+    "ether/simplemap": "^3.9.0"
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/"
+      "modules\\sitemodule\\": "modules/sitemodule/src/"
     }
   },
   "config": {
@@ -36,15 +42,16 @@
     }
   },
   "scripts": {
-    "post-create-project-cmd": [
-      "@php -r \"copy('.env.example', '.env');\"",
-      "@php -r \"unlink('composer.json');\"",
-      "@php -r \"unlink('README.md');\"",
-      "@php -r \"unlink('CHANGELOG.md');\"",
-      "@php -r \"unlink('composer-create-project-test.sh');\"",
-      "@php -r \"rename('composer.json.default', 'composer.json');\"",
-      "@composer dump-autoload -o",
-      "@php craft setup/welcome"
-    ]
+    "craft-update": [
+      "@php nys-setup update",
+      "@php craft migrate/all",
+      "@php craft project-config/apply",
+      "@php craft clear-caches/all"
+    ],
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-update-cmd": "@craft-update",
+    "post-install-cmd": "@craft-update"
   }
 }
