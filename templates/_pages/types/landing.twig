@@ -5,14 +5,16 @@
 		<h1 class="text-4xl text-primary">
 			{{ entry.title }}
 		</h1>
+
 		{% if entry.richText %}
 			<div class="block-text">
 				{{ entry.richText }}
 			</div>
 		{% endif %}
 	</div>
+
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 pr-8 px-5">
-		{% for entry in entry.children %}
+		{% for entry in entry.children.all() %}
 			{% include '_partials/tile' %}
 		{% endfor %}
 	</div>

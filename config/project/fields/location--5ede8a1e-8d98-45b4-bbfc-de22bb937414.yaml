@@ -1,0 +1,33 @@
+contentColumnType: text
+fieldGroup: 820d67ae-c658-4d30-8347-14058c97e1c1 # Globals
+handle: location
+instructions: ''
+name: Location
+searchable: false
+settings:
+  boundary: '""'
+  boundaryRestrictionNELat: null
+  boundaryRestrictionNELng: null
+  boundaryRestrictionSWLat: null
+  boundaryRestrictionSWLng: null
+  country: AU
+  countryRestriction: null
+  height: null
+  hideAddress: ''
+  hideLatLng: null
+  hideMap: '1'
+  hideSearch: ''
+  lat: 51.272154
+  lng: 0.514951
+  maxZoom: '18'
+  minZoom: '3'
+  showCurrentLocation: ''
+  showLatLng: ''
+  showW3WField: false
+  showW3WGrid: false
+  size: normal
+  typeRestriction: null
+  zoom: 15
+translationKeyFormat: null
+translationMethod: none
+type: ether\simplemap\fields\MapField

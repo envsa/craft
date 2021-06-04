@@ -1,0 +1,45 @@
+contentColumnType: string
+fieldGroup: 7bfcbb3d-29bf-40e4-a9a8-838a0ebf268b # Settings
+handle: sidebarOptions
+instructions: ''
+name: 'Sidebar options'
+searchable: false
+settings:
+  multi: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Call to actions'
+        -
+          - value
+          - callToActions
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Location
+        -
+          - value
+          - location
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Recent posts'
+        -
+          - value
+          - recentPosts
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Checkboxes

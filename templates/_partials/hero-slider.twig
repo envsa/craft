@@ -15,7 +15,7 @@
 					{% set heading = entry.teaserTitle ?? entry.title %}
 					{% set subHeading = entry.teaserText ?? null %}
 			{% endswitch %}
-			<swiper-slide :class="h-full">
+			<swiper-slide class="h-full">
 				{% include "_partials/slide" %}
 			</swiper-slide>
 		{% endfor %}

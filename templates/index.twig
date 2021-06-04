@@ -1,7 +1,7 @@
 {% extends "_layouts/generic-page-layout" %}
 {% set slides = entry.slider.all() %}
 {% set cards = entry.homepageCards.all() %}
-{% set ctas = entry.ctas.all() %}
+{% set ctas = site.ctas.all() %}
 {% set tiles = entry.homepageTiles.all() %}
 
 
@@ -17,7 +17,7 @@
 {# -- Page body -- #}
 {% block content %}
 	{% include "_partials/hero-slider" with slides %}
-	<div class="bg-white p-4 lg:p-5 flex gap-4 lg:flex-row flex-wrap">
+	<div class="p-4 lg:p-5 flex gap-4 lg:flex-row flex-wrap">
 		<section class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:w-3/4">
 			{% for block in cards %}
 				{% include "_partials/homepage-card" %}

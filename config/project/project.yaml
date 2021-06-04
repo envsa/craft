@@ -1,4 +1,4 @@
-dateModified: 1622514635
+dateModified: 1622714295
 email:
   fromEmail: dew.internet@sa.gov.au
   fromName: 'Craft Bot 🤖 '
@@ -179,6 +179,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  matrixmate:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   minify:
     edition: standard
     enabled: true
@@ -249,6 +253,30 @@ plugins:
       sitemapsEnabled: true
       socialMediaPreviewTarget: true
       submitSitemaps: true
+  simplemap:
+    edition: lite
+    enabled: true
+    schemaVersion: 3.4.2
+    settings:
+      apiKey: null
+      browserApiKey: null
+      disablePopulateMissingFieldData: false
+      geoLocationAutoRedirect: false
+      geoLocationCacheDuration: 5270400
+      geoLocationService: none
+      geoLocationToken: ''
+      geoService: nominatim
+      geoToken: ''
+      mapTiles: openstreetmap
+      mapToken: ''
+      serverApiKey: null
+      unrestrictedApiKey: null
+      w3wEnabled: ''
+      w3wToken: ''
+  smith:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   twigpack:
     edition: standard
     enabled: true
@@ -264,7 +292,7 @@ plugins:
 system:
   edition: pro
   live: true
-  name: craft3
+  name: 'Botanic Gardens of South Australia'
   retryDuration: null
   schemaVersion: 3.6.8
   timeZone: Australia/Adelaide

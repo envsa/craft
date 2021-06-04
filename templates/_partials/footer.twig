@@ -1,3 +1,18 @@
+{% set logos = {
+  'Government of South Australia': {
+    image: craft.assets().volume('sharedImages').filename('gosa-logotype-white.svg').one(),
+    link: 'https://www.environment.sa.gov.au'
+  },
+  'southaustralia.com': {
+    image: craft.assets().volume('sharedImages').filename('bsa-logotype-white.svg').one(),
+    link: 'https://southaustralia.com'
+  },
+  'sa.gov.au': {
+    image: craft.assets().volume('sharedImages').filename('sagovau-logotype-white.svg').one(),
+    link: 'https://sa.gov.au'
+  }
+} %}
+
 <footer>
 	{% include "_partials/nav-sitemap" %}
 	<div class="bg-primary p-5 flex md:items-center md:justify-between">
@@ -10,9 +25,15 @@
 		</p>
 	</div>
 
-	<div class="bg-secondary p-5 md:flex md:items-center md:justify-between xl:shadow-2xl xl:rounded-b-xl">
-		<p class="mt-8 text-xs text-white md:mt-0 md:order-1">
-			partner logos
-		</p>
+	<div class="bg-secondary px-5 py-1 md:flex md:items-center md:justify-between xl:shadow-2xl xl:rounded-b-xl">
+		<div class="mt-8 text-white md:mt-0">
+			<ul class="flex space-x-4">
+				{% for title, logo in logos %}
+					<li>
+						<a href="{{ logo.link }}"><img class="h-12" src="{{ logo.image.url }}" alt="{{ title }}"></a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
 </footer>

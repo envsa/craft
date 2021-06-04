@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 67a0dac0-ca2e-467d-8c34-2a19a625dd4b # Blogs
+handle: blogCategory
+instructions: 'Which blog does this belong to?'
+name: 'Blog category'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Select a blog'
+  showSiteMenu: true
+  source: 'group:b9a3aac5-e444-49cd-bef0-05a41527b23b' # Blogs
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

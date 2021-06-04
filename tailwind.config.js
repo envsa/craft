@@ -7,7 +7,9 @@ const customColors = {
   white: colors.white,
   gray: colors.trueGray,
   indigo: colors.indigo,
-  blue: colors.blue
+  blue: colors.blue,
+  red: colors.red,
+  green: colors.green
 };
 
 module.exports = {
@@ -30,7 +32,7 @@ module.exports = {
       ...customColors,
       primary: {
         DEFAULT: '#217B73',
-        50: '#79DBD2',
+        50: '#E6F0EF',
         100: '#69D7CD',
         200: '#48CEC2',
         300: '#32BBAF',

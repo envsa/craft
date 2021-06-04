@@ -1,0 +1,19 @@
+{#
+# Rich text block
+#
+# @param  block  Matrix/Neo block
+#}
+
+<div class="block-text mx-auto">
+	<div class="mx-auto">
+		{% if block.heading %}
+			<h4 id="{{ block.id }}">
+				{{ block.heading }}
+			</h4>
+		{% endif %}
+
+		<div>
+			{{ block.blockText ?? block.richText }}
+		</div>
+	</div>
+</div>

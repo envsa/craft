@@ -24,7 +24,10 @@
     "nystudio107/craft-twigpack": "^1.2",
     "nystudio107/craft-cookies": "^1.1",
     "sebastianlenz/linkfield": "1.0.25",
-    "solspace/craft-freeform": "3.11.4.1"
+    "solspace/craft-freeform": "3.11.4.1",
+    "vaersaagod/matrixmate": "1.2.7",
+    "verbb/smith": "1.1.14",
+    "ether/simplemap": "3.9.1"
   },
   "autoload": {
     "psr-4": {

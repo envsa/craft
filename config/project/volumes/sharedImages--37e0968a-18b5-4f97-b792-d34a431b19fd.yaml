@@ -66,6 +66,15 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          -
+            fieldUid: 5cc38d1e-318b-43df-ae48-91b2cee0d065 # Optimized square
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: 'Optimized images'
         sortOrder: 2
 handle: sharedImages

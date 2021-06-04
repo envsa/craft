@@ -2,7 +2,7 @@
 {% set sitemap = footer.sitemap.all() %}
 
 {% if sitemap|length %}
-	<nav class="bg-gray-700 px-5 pt-8 lg:flex justify-end">
+	<nav class="sitemap bg-gray-700 px-5 pt-8 lg:flex justify-end">
 		<ul class="flex flex-wrap -mb-10 md:mb-0 md:grid md:grid-cols-4 md:gap-8 lg:w-3/4">
 			{% for block in sitemap %}
 				{% set heading = block.heading.one() %}

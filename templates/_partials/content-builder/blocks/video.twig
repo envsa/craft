@@ -1,0 +1,23 @@
+{# Pass in a block #}
+{% set protocol = (craft.app.request.hostInfo|indexOf('https')) != - 1 ? 'https://' : 'http://' %}
+{% set youtubeEmbedUrl %}
+  {% if block.blockVideoUrl matches '/videoseries|playlist/i' %}
+    {% set query = block.blockVideoUrl|urlQuery %}
+    {{ protocol ~ 'youtube.com/embed/videoseries?' ~ query }}
+  {% else %}
+    {{ protocol ~ 'youtube.com/embed/' ~ (block.blockVideoUrl|youtubeId) }}
+  {% endif %}
+{% endset %}
+
+<div class="block-video mx-auto px-6 max-w-7xl md:px-8">
+  <div class="mx-auto max-w-prose">
+    <div class="-mx-6 md:-mx-8 lg:mx-0">
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe title="{{ block.blockTitle }}"
+          src="{{ youtubeEmbedUrl|trim }}"
+          frameborder="0"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>

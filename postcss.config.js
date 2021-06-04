@@ -10,6 +10,7 @@ module.exports = {
           'nesting-rules': true
         }
       }
-    ]
+    ],
+    'postcss-nested'
   ]
 };

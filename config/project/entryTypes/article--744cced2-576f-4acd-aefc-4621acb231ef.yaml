@@ -1,5 +1,5 @@
 fieldLayouts:
-  cc7b76f2-aea2-4851-8e97-1d3b4f565a6d:
+  076fa522-7b79-4dc2-b77d-8af9d5d59875:
     tabs:
       -
         elements:
@@ -31,6 +31,15 @@ fieldLayouts:
             instructions: null
             label: null
             required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bcc268a2-d7a7-407f-a257-a0e93b593c8a # Blog category
+            instructions: ''
+            label: ''
+            required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
@@ -128,10 +137,10 @@ fieldLayouts:
             width: 100
         name: Settings
         sortOrder: 2
-handle: general
+handle: article
 hasTitleField: true
-name: General
-section: ed9d3647-71e9-4ce1-a143-0a5692fd03d0 # Pages
+name: Article
+section: 67fd0c99-3912-42fe-8d22-1597dc2b9e0e # Blog
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

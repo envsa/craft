@@ -10,7 +10,9 @@
     "build": "mix --production",
     "clean": "rm -rf web/dist/*",
     "lint-scripts": "eslint './src/**/*.{js,ts,vue}' './*.js'",
-    "lint-scripts:fix": "eslint './src/**/*.{js,ts,vue}' './*.js' --fix"
+    "lint-styles": "stylelint './src/**/*.{pcss,css,scss}'",
+    "lint-scripts:fix": "eslint './src/**/*.{js,ts,vue}' './*.js' --fix",
+    "lint-styles:fix": "stylelint './src/**/*.{pcss,css,scss}' --fix"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.1",
@@ -19,8 +21,7 @@
     "swiper": "^6.6.2",
     "tailwindcss": "^2.1.2",
     "tailwindcss-skip-link": "^1.0.1",
-    "vue": "^3.0.5",
-    "vue-confetti": "^2.0.8"
+    "vue": "^3.0.5"
   },
   "devDependencies": {
     "@envsa/eslint-config": "^2.4.0",
@@ -34,6 +35,7 @@
     "laravel-mix-polyfill": "^3.0.0",
     "node-sass": "^6.0.0",
     "postcss": "^8.2.12",
+    "postcss-nested": "^5.0.5",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.0",
     "replace": "^1.2.1",

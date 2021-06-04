@@ -13,8 +13,8 @@
 			{% if options.image %}
 				{% set optimizedImages = options.image.optimizedSquare %}
 				<picture>
-					<source srcset="{{ optimizedImages.srcsetWebP() }}" sizes="100vw" type="image/webp"/>
-					<img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" sizes="100vw" class="object-cover"/>
+					<source srcset="{{ optimizedImages.srcsetWebP() }}" sizes="33.3333vw" type="image/webp"/>
+					<img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" sizes="33.3333vw" class="object-cover"/>
 				</picture>
 			{% else %}
 				<img src="https://source.unsplash.com/random/500x500" alt="">

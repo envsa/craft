@@ -16,6 +16,7 @@ return [
   'aliases' => [
     '@assetsUrl' => App::env('ASSETS_URL'),
     '@cloudfrontUrl' => App::env('CLOUDFRONT_URL'),
+    '@googleApi' => App::env('GOOGLE_API_KEY'),
     '@web' => App::env('SITE_URL'),
     '@webroot' => App::env('WEB_ROOT_PATH'),
   ],
