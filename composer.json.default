@@ -43,7 +43,6 @@
   },
   "scripts": {
     "craft-update": [
-      "@php nys-setup update",
       "@php craft migrate/all",
       "@php craft project-config/apply",
       "@php craft clear-caches/all"
