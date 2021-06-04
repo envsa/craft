@@ -43,7 +43,6 @@
       "@php -r \"unlink('CHANGELOG.md');\"",
       "@php -r \"unlink('composer-create-project-test.sh');\"",
       "@php -r \"rename('composer.json.default', 'composer.json');\"",
-      "@composer update --no-scripts",
       "@composer dump-autoload -o",
       "@php craft setup/welcome"
     ]
