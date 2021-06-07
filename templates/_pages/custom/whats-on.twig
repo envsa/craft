@@ -1,0 +1,9 @@
+{% extends '_pages/types/landing' %}
+
+{% set events = craft.entries.section('events').all() %}
+
+{% block tiles %}
+  {% for entry in events %}
+    {% include '_partials/tile' %}
+  {% endfor %}
+{% endblock %}

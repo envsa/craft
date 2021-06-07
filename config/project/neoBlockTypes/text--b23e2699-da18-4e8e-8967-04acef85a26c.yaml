@@ -6,7 +6,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: ea95f70b-ca9b-48af-bac4-994cc7cc0a80 # Block text
+            fieldUid: fb00c1dd-4f98-427b-a2ba-4b53503d8cb5 # Rich text
             instructions: null
             label: null
             required: false

@@ -1,4 +1,4 @@
-dateModified: 1622714295
+dateModified: 1623037430
 email:
   fromEmail: dew.internet@sa.gov.au
   fromName: 'Craft Bot 🤖 '
@@ -183,6 +183,11 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  migrationassistant:
+    edition: standard
+    enabled: true
+    licenseKey: 6RF7NDUS1QSXP2Y30K39Q3PT
+    schemaVersion: 1.0.0
   minify:
     edition: standard
     enabled: true
@@ -191,7 +196,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: OAL9GD6HGCZSLCZGB3V1DA1Y
-    schemaVersion: 2.8.16
+    schemaVersion: 2.9.11
   publisher:
     edition: standard
     enabled: true

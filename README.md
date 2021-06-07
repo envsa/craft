@@ -69,6 +69,13 @@ npm run build
 
 You should be ready to go, visit the your url and test it out.
 
+#### Pre git checklist
+Get contents of of `config/license.key` and add them to the environment variable.
+
+Uncomment line 22 of `./craft` and `web/index.php`
+
+Remove `starterbase.db`
+
 Default login
 ```
 dew.internet@sa.gov.au

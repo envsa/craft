@@ -1,7 +1,0 @@
-{
-  "buttons": ["format", "bold", "italic", "link", "file", "lists", "html"],
-  "formatting": ["p", "h2", "h3", "h4"],
-  "linkNewTab": true,
-  "toolbarFixed": true,
-  "removeNewLines": true
-}

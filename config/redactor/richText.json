@@ -1,0 +1,17 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "link",
+    "redactoranchors",
+    "file",
+    "lists",
+    "html"
+  ],
+  "plugins": ["redactoranchors"],
+  "formatting": ["p", "h2", "h3", "h4"],
+  "linkNewTab": true,
+  "toolbarFixed": true,
+  "removeNewLines": true
+}

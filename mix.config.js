@@ -8,12 +8,12 @@ const config = {
   criticalDomain: siteUrl,
   criticalCssSuffix: '_critical.min',
   criticalCssUrls: [
-    { url: '/', template: 'homepage' },
-    { url: '/visit', template: 'landing' },
-    {
-      url: '/visit/adelaide-botanic-garden/visitor-information/planning-your-visit',
-      template: 'general'
-    }
+    // { url: '/', template: 'homepage' },
+    // { url: '/visit', template: 'landing' },
+    // {
+    //   url: '/visit/adelaide-botanic-garden/visitor-information/planning-your-visit',
+    //   template: 'general'
+    // }
   ],
   jsFramework: 'vue' // 'vue', 'react', or ''
 };

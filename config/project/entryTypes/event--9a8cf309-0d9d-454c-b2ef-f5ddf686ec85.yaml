@@ -1,5 +1,5 @@
 fieldLayouts:
-  076fa522-7b79-4dc2-b77d-8af9d5d59875:
+  588de7b7-27a9-4637-bd4d-86702c076cc7:
     tabs:
       -
         elements:
@@ -27,10 +27,10 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: bcc268a2-d7a7-407f-a257-a0e93b593c8a # Blog category
-            instructions: ''
-            label: ''
-            required: ''
+            fieldUid: 3b5c5c6a-f442-4987-b0c0-a7e175356d95 # Label
+            instructions: null
+            label: null
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
@@ -44,6 +44,24 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          -
+            fieldUid: b5e6b714-38fe-4661-91c0-28454e56d45a # Start date
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: a93a6824-982b-40e8-ab4b-3ed360a152c3 # End date
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
           -
             fieldUid: fa112548-c36b-46b2-901a-839be3825ce8 # Content builder
             instructions: null
@@ -137,10 +155,10 @@ fieldLayouts:
             width: 100
         name: Settings
         sortOrder: 2
-handle: article
+handle: event
 hasTitleField: true
-name: Article
-section: 67fd0c99-3912-42fe-8d22-1597dc2b9e0e # Blog
+name: Event
+section: d6e3799a-53f7-484b-8c83-a45b22de9395 # Events
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

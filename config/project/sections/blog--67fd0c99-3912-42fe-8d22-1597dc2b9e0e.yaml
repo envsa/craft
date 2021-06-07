@@ -18,6 +18,6 @@ siteSettings:
   7aa2b387-b891-449b-bbbb-b709fb95595e: # Botanic Gardens of South Australia
     enabledByDefault: true
     hasUrls: true
-    template: pages/_entry
+    template: _pages/entry
     uriFormat: 'blogs/{slug}'
 type: channel

@@ -4,33 +4,25 @@
  # @param  block  Matrix/Neo block
  #}
 
-{% set image = block.blockImage.one() %}
-{% set link = block.asset.one() %}
+{% set image = block.blockImage.one() ?? null %}
 
 {% if image %}
   {% set optimizedImages = image.optimizedGeneral %}
-  {% set caption = block.caption ?? image.caption %}
-  {% set pictureTag %}
-    <picture>
-      <source data-srcset="{{ optimizedImages.srcsetWebP() }}" sizes="100vw" type="image/webp" />
-      <source data-srcset="{{ optimizedImages.srcset() }}" sizes="100vw" />
-      <img class="lazyload"
-        loading="lazy"
-        src="{{ optimizedImages.placeholderBox() }}"
-        data-src="{{ optimizedImages.placeholderBox() }}"
-        data-srcset="{{ optimizedImages.srcset() }}"
-        alt="{{ image.altText ?? image.title }}" />
-    </picture>
-  {% endset %}
+  {% set caption = block.caption ?? image.caption ?? null %}
 
   <div class="block-image mx-auto px-6 max-w-7xl md:px-8">
     <div class="mx-auto max-w-prose">
       <figure class="-mx-6 md:-mx-8 lg:mx-0">
-        {% if link %}
-          <a href="{{ link.url }}">{{ pictureTag }}</a>
-        {% else %}
-          {{ pictureTag }}
-        {% endif %}
+        <picture>
+          <source data-srcset="{{ optimizedImages.srcsetWebP() }}" sizes="100vw" type="image/webp" />
+          <source data-srcset="{{ optimizedImages.srcset() }}" sizes="100vw" />
+          <img class="lazyload"
+            loading="lazy"
+            src="{{ optimizedImages.placeholderBox() }}"
+            data-src="{{ optimizedImages.placeholderBox() }}"
+            data-srcset="{{ optimizedImages.srcset() }}"
+            alt="{{ image.altText ?? image.title }}" />
+        </picture>
         {% if block.showCaption and caption %}
           <figcaption class="p-4 bg-black text-white italic text-sm">
             {{ caption }}

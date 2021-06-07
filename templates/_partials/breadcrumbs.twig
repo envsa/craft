@@ -1,4 +1,4 @@
-{% set breadcrumbs = entry.getAncestors().hideNav('not true').all() %}
+{% set breadcrumbs = breadcrumbs ?? entry.getAncestors().hideNav('not true').all() %}
 {% set homepage = craft.entries().section('homepage').one() %}
 {% set breadcrumbs = breadcrumbs|unshift(homepage) %}
 {% set breadcrumbs = breadcrumbs|push(entry) %}

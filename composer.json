@@ -39,6 +39,7 @@
       "@php -r \"copy('.env.example', '.env');\"",
       "@php -r \"unlink('composer.json');\"",
       "@php -r \"unlink('README.md');\"",
+      "@php -r \"unlink('CHANGELOG.md');\"",
       "@php -r \"unlink('composer-create-project-test.sh');\"",
       "@php -r \"rename('composer.json.default', 'composer.json');\"",
       "@composer update --no-scripts",

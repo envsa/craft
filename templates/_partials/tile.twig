@@ -2,7 +2,7 @@
 
 {% set options = {
 	image: entry.heroImage.one() ??? entry.teaserImage.one() ??? image ??? null,
-	tag: tag ?? null,
+	label: entry.label ??? label ??? null,
 	title: entry.teaserTitle ??? entry.title ??? title ??? null,
 	teaserText: entry.teaserText ??? teaserText ??? null
 } %}
@@ -21,9 +21,9 @@
 			{% endif %}
 		</div>
 
-		{% if options.tag %}
+		{% if options.label %}
 			<div class="absolute top-5 right-0 bg-white px-4 text-primary font-bold text-xs md:text-sm py-1">
-				{{ options.tag }}
+				{{ options.label }}
 			</div>
 		{% endif %}
 
