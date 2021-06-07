@@ -1,7 +1,7 @@
 {
-  "name": "dewinternet/craft",
-  "description": "A starter Craft CMS installation for DEW Websites",
-  "version": "1.0.1",
+  "name": "envsa/craft",
+  "description": "envsa Craft 3 CMS scaffolding project",
+  "version": "2.0.0",
   "keywords": [
     "craft",
     "cms",
@@ -20,7 +20,7 @@
     "rss": "https://craftcms.com/changelog.rss"
   },
   "require": {
-    "craftcms/cms": "^3.4.0",
+    "craftcms/cms": "^3.6.0",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "autoload": {
@@ -31,7 +31,7 @@
   "config": {
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.2.5"
     }
   },
   "scripts": {
@@ -39,12 +39,12 @@
       "@php -r \"copy('.env.example', '.env');\"",
       "@php -r \"unlink('composer.json');\"",
       "@php -r \"unlink('README.md');\"",
+      "@php -r \"unlink('CHANGELOG.md');\"",
       "@php -r \"unlink('composer-create-project-test.sh');\"",
       "@php -r \"rename('composer.json.default', 'composer.json');\"",
       "@composer update --no-scripts",
       "@composer dump-autoload -o",
-      "@php craft setup/welcome",
-      "@php nys-setup welcome"
+      "@php craft setup/welcome"
     ]
   }
 }

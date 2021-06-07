@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 7bfcbb3d-29bf-40e4-a9a8-838a0ebf268b # Settings
+handle: hideNav
+instructions: 'Hide this page from navigation menus'
+name: 'Hide from navigation'
+searchable: false
+settings:
+  default: false
+  offLabel: Show
+  onLabel: Hide
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

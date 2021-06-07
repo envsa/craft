@@ -1,161 +1,106 @@
-/**
- * ===========================
- * Agency Webpack-Mix Config
- * A capable website/webapp config built for the modern web agency.
- * https://github.com/ben-rogerson/agency-webpack-mix-config
- * ===========================
- *
- * Contents
- *
- * ⚙️ Settings
- * 🎭 Hashing
- * 🎨 Styles
- * 🎨 Styles: CriticalCSS
- * 🎨 Styles: PurgeCSS
- * 🎨 Styles: PostCSS
- * 🎨 Styles: Vendor
- * 🎨 Styles: Other
- * 📑 Scripts
- * 📑 Scripts: Polyfills
- * 📑 Scripts: Auto import libraries
- * 📑 Scripts: Linting
- * 🏞 Images
- * 🎆 Icons
- * 🗂️ Static
- * 🚧 Webpack-dev-server
- */
-
-// ⚙️ Base config
-const config = {
-  // Dev domain to proxy
-  devProxyDomain: process.env.SITE_URL || 'http://site.test',
-  // Paths to observe for changes then trigger a full page reload
-  devWatchPaths: ['templates'],
-  // Port to use with webpack-dev-server
-  devServerPort: process.env.DEVSERVER_PORT,
-  // Enable purgecss
-  purgeCss: false,
-  // Folders where purgeCss can look for used selectors
-  purgeCssGrabFolders: ['src', 'templates'],
-  // Specific selectors that purgeCss should not remove
-  purceCssWhitelistSelectors: [],
-  // Selector patterns that purgeCss should not remove
-  purgeCssWhitelistPatterns: [],
-  // Urls for CriticalCss to look for "above the fold" Css
-  criticalCssUrls: [
-    // { urlPath: '/', label: 'homepage' }
-  ],
-  // Folder served to users
-  publicFolder: './web',
-  // Foldername for built src assets (relative to publicFoler)
-  publicBuildFolder: `.${process.env.ASSETS_URL}`
-};
-
-// ⚙️ Imports
 const mix = require('laravel-mix');
+const replace = require('replace');
 const path = require('path');
 const globby = require('globby');
-
-// ⚙️ Source folders
-const source = {
-  icons: path.resolve('src/icons'),
-  images: path.resolve('src/images'),
-  scripts: path.resolve('src/js'),
-  styles: path.resolve('src/styles'),
-  static: path.resolve('src/static'),
-  templates: path.resolve('templates')
-};
-
-// Define local scripts that need to be inlined
-let inlineScripts = globby.sync(`${source.scripts}/inline/*.{js,mjs}`);
-// Add any node modules to the inline scripts
-inlineScripts = [
-  ...inlineScripts
-  // eg. path.resolve('node_modules/module/module.js')
-];
-
-// ⚙️ Misc
-mix.setPublicPath(config.publicFolder);
-mix.disableNotifications();
-mix.webpackConfig({
-  resolve: { alias: source }
-});
-!mix.inProduction() && mix.sourceMaps();
+const webpack = require('webpack');
+const { config, source, devServer } = require('./mix.config');
 
 /**
- * 🎭 Hashing (for non-static sites)
- * Mix has querystring hashing by default, eg: main.css?id=abcd1234
- * This script converts it to filename hashing, eg: main.abcd1234.css
- * https://github.com/JeffreyWay/laravel-mix/issues/1022#issuecomment-379168021
+ * Checklist
+ * [✅] Hashing/cleanup mix-manifest
+ * [✅] Scripts: Main
+ * [✅] Styles: Main
+ * [✅] Styles: CriticalCSS
+ * [✅] Inline js processing
+ * [✅] Devserver HMR
+ * [ ] Images
+ * [✅] Static
  */
-const manifestPath = path.join(config.publicFolder, 'mix-manifest.json');
 
-if (mix.inProduction()) {
-  // Allow versioning in production
-  mix.version();
-  // Get the manifest filepath for filehash conversion
-  // Run after mix finishes
-  mix.then(() => {
-    const laravelMixMakeFileHash = require('laravel-mix-make-file-hash');
-    laravelMixMakeFileHash(config.publicFolder, manifestPath);
-  });
-} else {
-  mix.then(() => {
-    // Clean up the file paths from the manifest file
-    const replace = require('replace');
-    replace({
-      regex: '/dist/',
-      replacement: '',
-      paths: [manifestPath],
-      silent: false
-    });
-  });
-}
+mix.setPublicPath(config.publicPath);
+mix.sourceMaps(!mix.inProduction(), 'source-map');
+mix.disableNotifications();
+mix.alias({
+  '@': path.resolve('./src')
+});
 
 /**
- * 🎨 Styles: Main
- * Uses dart-sass which has a replica API to Node-Sass
- * https://laravel-mix.com/docs/4.0/css-preprocessors
- * https://github.com/sass/node-sass#options
+ * Set devmode
+ */
+mix.before(() => {
+  const status = mix.inProduction() ? 0 : 1;
+  replace({
+    regex: 'DEV_MODE=[1|0]',
+    replacement: `DEV_MODE=${status}`,
+    paths: ['.env'],
+    silent: true
+  });
+});
+
+/**
+ * Scripts: Main
+ * https://laravel-mix.com/docs/6.0/mixjs
+ */
+const scriptFiles = globby.sync(`${source.scripts}/[^_]*.js`);
+scriptFiles.forEach((file) => {
+  const scriptTask = mix.js(file, path.join(config.publicPath, '/js/'));
+
+  switch (config.jsFramework) {
+    case 'vue':
+      scriptTask.vue();
+      break;
+
+    case 'react':
+      scriptTask.react();
+      break;
+
+    default:
+      scriptTask;
+      break;
+  }
+});
+
+/**
+ * Scripts: Inline
+ * Vanilla js that can be written in modern js but compiled
+ * down to have support in the browser.
+ * We handle these separately to the normal js because we don't
+ * want it filled up with webopack nonsense
+ */
+const inlineScriptFiles = globby.sync(`${source.scripts}/inline/[^_]*.js`);
+inlineScriptFiles.forEach((file) => {
+  const ext = path.extname(file);
+  const name = path.basename(file, ext);
+  mix.babel(file, path.join(config.publicPath, `/js/inline/${name}.min.js`));
+});
+
+/**
+ * Styles: Main
+ * https://laravel-mix.com/docs/6.0/postcss
  */
 // Get a list of style files within the base styles folder
-const styleFiles = globby.sync(`${source.styles}/*.{scss,sass}`);
-// Data to send to style files
-const styleData = `$isDev: ${!mix.inProduction()}; $assetRoot: '/dist/';`;
-// Create an asset for every style file
-styleFiles.forEach(styleFile => {
-  mix.sass(
-    styleFile,
-    path.join(config.publicFolder, config.publicBuildFolder),
-    {
-      prependData: styleData,
-      sassOptions: {
-        includePaths: [
-          path.resolve(__dirname, 'node_modules/')
-        ]
-      }
-    }
-  );
+// ignore files with a preceding underscore
+const styleFiles = globby.sync(`${source.styles}/[^_]*.{css,pcss}`);
+styleFiles.forEach((file) => {
+  mix.postCss(file, path.join(config.publicPath, '/css/'));
 });
 
 /**
- * 🎨 Styles: CriticalCSS
- * https://github.com/addyosmani/critical#options
+ * Styles: CriticalCSS
+ * https://laravel-mix.com/extensions/criticalcss
  */
-const criticalDomain = config.devProxyDomain;
-if (criticalDomain && config.criticalCssUrls.length) {
-  require('laravel-mix-critical');
-  mix.critical({
-    enabled: mix.inProduction() && config.criticalCssUrls.length,
-    urls: config.criticalCssUrls.map(page => ({
-      src: new URL(page.urlPath, criticalDomain).href,
-      dest: path.join(
-        config.publicFolder,
-        config.publicBuildFolder,
-        `${page.label}_critical.min.css`
-      )
-    })),
+if (config.criticalDomain && config.criticalCssUrls.length) {
+  require('laravel-mix-criticalcss');
+  mix.criticalCss({
+    enabled: mix.inProduction(),
+    paths: {
+      base: config.criticalDomain.href,
+      templates: path.join(config.publicPath, '/css/critical/'),
+      suffix: config.criticalCssSuffix
+    },
+    urls: config.criticalCssUrls,
     options: {
+      minify: true,
       width: 1200,
       height: 1200
     }
@@ -163,202 +108,75 @@ if (criticalDomain && config.criticalCssUrls.length) {
 }
 
 /**
- * 🎨 Styles: PurgeCSS
- * https://github.com/spatie/laravel-mix-purgecss#usage
+ * Images
+ * https://laravel-mix.com/docs/6.0/copying-files
+ *
+ * TODO: update this to handle basic image processing too
  */
-if (config.purgeCssGrabFolders.length) {
-  require('laravel-mix-purgecss');
-  mix.purgeCss({
-    enabled: config.purgeCss && mix.inProduction(),
-    folders: config.purgeCssGrabFolders, // Folders scanned for selectors
-    whitelist: config.purceCssWhitelistSelectors,
-    whitelistPatterns: config.purgeCssWhitelistPatterns,
-    extensions: ['php', 'twig', 'html', 'js']
-  });
-}
+mix.copyDirectory(source.images, path.join(config.publicPath, 'images'));
 
 /**
- * 🎨 Styles: PostCSS
- * Extend CSS with plugins
- * https://laravel-mix.com/docs/4.0/css-preprocessors#postcss-plugins
+ * Static
+ * https://laravel-mix.com/docs/6.0/copying-files
  */
-mix.options({
-  postCss: [
-    require('tailwindcss')('./tailwind.config.js'),
-    require('postcss-preset-env')({ stage: 2 })
+mix.copyDirectory(source.static, path.join(config.publicPath, 'static'));
+
+mix.webpackConfig({
+  target: 'web',
+  output: {
+    publicPath: devServer.outputPath()
+  },
+  devServer: {
+    host: devServer.host,
+    port: devServer.port,
+    dev: {
+      publicPath: devServer.path
+    },
+    client: {
+      port: devServer.port,
+      host: devServer.clientHost,
+      overlay: true,
+      progress: false
+    },
+    firewall: false,
+    static: {
+      directory: './templates',
+      publicPath: '/',
+      watch: true
+    },
+    liveReload: true
+  },
+  infrastructureLogging: {
+    level: 'log'
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false
+    })
   ]
 });
 
-/**
- * 🎨 Styles: Other
- * https://laravel-mix.com/docs/4.0/options
- */
-mix.options({
-  // Disable processing css urls for speed
-  // https://laravel-mix.com/docs/4.0/css-preprocessors#css-url-rewriting
-  processCssUrls: false
-});
-
-/**
- * 📑 Scripts: Main
- * Script files are transpiled to vanilla JavaScript
- * https://laravel-mix.com/docs/4.0/mixjs
- */
-const scriptFiles = globby.sync(`${source.scripts}/*.{js,mjs}`);
-scriptFiles.forEach(scriptFile => {
-  mix.js(scriptFile, path.join(config.publicFolder, config.publicBuildFolder));
-});
-
-inlineScripts.forEach(scriptFile => {
-  const ext = path.extname(scriptFile);
-  const name = path.basename(scriptFile, ext);
-
-  mix.babel(scriptFile, path.join(config.publicFolder, config.publicBuildFolder, `/inlinejs/${name}.min.js`));
-});
-
-/**
- * 📑 Scripts: Polyfills
- * Automatically add polyfills for target browsers with core-js@3
- * See "browserslist" in package.json for your targets
- * https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md
- * https://github.com/scottcharlesworth/laravel-mix-polyfill#options
- */
-require('laravel-mix-polyfill');
-mix.polyfill({
-  enabled: mix.inProduction(),
-  useBuiltIns: 'usage', // Only add a polyfill when a feature is used
-  targets: false, // "false" makes the config use browserslist targets in package.json
-  corejs: 3,
-  debug: false // "true" to check which polyfills are being used
-});
-
-/**
- * 📑 Scripts: Auto import libraries
- * Make JavaScript libraries available without an import
- * https://laravel-mix.com/docs/4.0/autoloading
- */
-mix.autoload({
-  jquery: ['$', 'jQuery', 'window.jQuery']
-});
-
-/**
- * 📑 Scripts: Vendor
- * Separate the JavaScript code imported from node_modules
- * https://laravel-mix.com/docs/4.0/extract
- * Without mix.extract you'll see an annoying js error after
- * launching the dev server - this should be fixed in webpack 5
- */
-mix.extract([]); // Empty params = separate all node_modules
-// mix.extract(['jquery']) // Specify packages to add to the vendor file
-
-/**
- * 📑 Scripts: Linting
- */
-if (!mix.inProduction()) {
-  require('laravel-mix-eslint');
-  mix.eslint();
+if (mix.inProduction()) {
+  mix.webpackConfig({
+    output: {
+      publicPath: '/dist/',
+      chunkFilename: 'js/modules/[name].[chunkhash:20].js',
+      clean: true
+    },
+    optimization: {
+      chunkIds: 'named',
+      moduleIds: 'named'
+    }
+  });
+  mix.version();
+  mix.then(() => {
+    const convertToFileHash = require('laravel-mix-make-file-hash');
+    convertToFileHash({
+      publicPath: config.publicPath,
+      manifestFilePath: path.resolve(config.publicPath, 'mix-manifest.json'),
+      blacklist: ['js/modules/**/*.js', 'images/**/*', 'static/**/*'],
+      keepBlacklistedEntries: false
+    });
+  });
 }
-
-/**
- * 🏞 Images
- * Images are optimized and copied to the build directory
- * https://github.com/Klathmon/imagemin-webpack-plugin#api
- */
-require('laravel-mix-imagemin');
-mix.imagemin(
-  {
-    from: path.join(source.images, '**/*'),
-    to: path.join(config.publicBuildFolder, '/images/site'),
-    context: 'src/images',
-    ignore: '**/favicon_src.*'
-  },
-  {},
-  {
-    gifsicle: { interlaced: true },
-    mozjpeg: { progressive: true, arithmetic: false },
-    optipng: { optimizationLevel: 6 }, // Lower number = speedier/reduced compression
-    svgo: {
-      plugins: [
-        { convertPathData: false },
-        { convertColors: { currentColor: false } },
-        { removeDimensions: true },
-        { removeViewBox: false },
-        { cleanupIDs: false }
-      ]
-    }
-  }
-);
-
-/**
- * 🎆 Icons
- * Individual SVG icons are optimised then combined into a single cacheable SVG
- * https://github.com/kisenka/svg-sprite-loader#configuration
- */
-require('laravel-mix-svg-sprite');
-mix.svgSprite(
-  source.icons,
-  path.join(config.publicBuildFolder, '/sprite.svg'),
-  {
-    symbolId: filePath => `icon-${path.parse(filePath).name}`,
-    extract: true
-  }
-);
-
-// Icon options
-mix.options({
-  imgLoaderOptions: {
-    svgo: {
-      plugins: [
-        { convertColors: { currentColor: true } },
-        { removeDimensions: false },
-        { removeViewBox: false }
-      ]
-    }
-  }
-});
-
-/**
- * 🗂️ Static
- * Additional folders with no transform requirements are copied to your build folders
- */
-mix.copyDirectory(
-  source.static,
-  path.join(config.publicFolder, config.publicBuildFolder)
-);
-
-/**
- * 🚧 Webpack-dev-server
- * https://webpack.js.org/configuration/dev-server/
- */
-mix.webpackConfig({
-  devServer: {
-    clientLogLevel: 'none', // Hide console feedback so eslint can take over
-    open: false, // open default browser
-    overlay: true, // show compiler errors in browser as overlay
-    port: config.devServerPort,
-    public: process.env.DEVSERVER_PUBLIC,
-    host: process.env.DEVSERVER_HOST, // Allows access from network
-    hot: true,
-    https: config.devProxyDomain.includes('https://'),
-    cert: process.env.DEVSERVER_CERT,
-    key: process.env.DEVSERVER_KEY,
-    contentBase: config.devWatchPaths.length ? config.devWatchPaths : undefined,
-    watchContentBase: config.devWatchPaths.length > 0,
-    watchOptions: {
-      aggregateTimeout: 200,
-      poll: 200, // Lower for faster reloads (more cpu intensive)
-      ignored: ['storage', 'node_modules', 'vendor']
-    },
-    disableHostCheck: true, // Fixes "Invalid Host header error" on assets
-    headers: {
-      'Access-Control-Allow-Origin': '*'
-    },
-    proxy: {
-      '**': {
-        target: config.devProxyDomain,
-        changeOrigin: true,
-        secure: config.devProxyDomain.includes('https://')
-      }
-    }
-  }
-});

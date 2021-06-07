@@ -1,0 +1,16 @@
+{% for block in blocks %}
+	{% switch block.type %}
+		{% case 'customContent' %}
+			{% include '_partials/content-builder/blocks/custom-content' %}
+
+		{% case 'text' %}
+			{% include '_partials/content-builder/blocks/rich-text' %}
+
+		{% case 'video' %}
+			{% include '_partials/content-builder/blocks/video' %}
+
+		{% case 'image' %}
+			{% include '_partials/content-builder/blocks/image' %}
+
+	{% endswitch %}
+{% endfor %}

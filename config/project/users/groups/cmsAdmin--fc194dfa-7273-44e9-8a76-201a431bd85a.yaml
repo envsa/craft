@@ -1,0 +1,80 @@
+description: 'Access to everything except development related things'
+handle: cmsAdmin
+name: 'CMS Admin'
+permissions:
+  - accesssitewhensystemisoff
+  - accesscp
+  - registerusers
+  - moderateusers
+  - assignuserpermissions
+  - 'assignusergroup:fc194dfa-7273-44e9-8a76-201a431bd85a' # CMS Admin
+  - assignusergroups
+  - administrateusers
+  - impersonateusers
+  - editusers
+  - deleteusers
+  - 'publishentries:5bca25b9-aa51-4b88-bbe5-9e338aecfb97' # Homepage
+  - 'publishpeerentrydrafts:5bca25b9-aa51-4b88-bbe5-9e338aecfb97' # Homepage
+  - 'deletepeerentrydrafts:5bca25b9-aa51-4b88-bbe5-9e338aecfb97' # Homepage
+  - 'editpeerentrydrafts:5bca25b9-aa51-4b88-bbe5-9e338aecfb97' # Homepage
+  - 'editentries:5bca25b9-aa51-4b88-bbe5-9e338aecfb97' # Homepage
+  - 'createentries:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'publishentries:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'deleteentries:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'publishpeerentries:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'deletepeerentries:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'editpeerentries:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'publishpeerentrydrafts:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'deletepeerentrydrafts:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'editpeerentrydrafts:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'editentries:ed9d3647-71e9-4ce1-a143-0a5692fd03d0' # Pages
+  - 'editglobalset:a2c771d3-8007-42be-a397-7945f01f2c44' # Footer
+  - 'editglobalset:c17bf7df-73d2-4012-9f9e-a6078d9996ff' # Site
+  - 'editglobalset:6a16e864-cae2-42df-95cc-3834afcfe89b' # Sitewide alert
+  - 'saveassetinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'createfoldersinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'deletefilesandfoldersinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'replacefilesinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'editimagesinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'editpeerfilesinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'replacepeerfilesinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'deletepeerfilesinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'editpeerimagesinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'viewpeerfilesinvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'viewvolume:e06bad3e-e63c-49ac-b605-164d334f58f8'
+  - 'saveassetinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'createfoldersinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'deletefilesandfoldersinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'replacefilesinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'editimagesinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'editpeerfilesinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'replacepeerfilesinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'deletepeerfilesinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'editpeerimagesinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'viewpeerfilesinvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'viewvolume:6b51a275-7999-4ae0-bbde-0f0c7a4aad5c'
+  - 'saveassetinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'createfoldersinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'deletefilesandfoldersinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'replacefilesinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'editimagesinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'editpeerfilesinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'replacepeerfilesinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'deletepeerfilesinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'editpeerimagesinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'viewpeerfilesinvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'viewvolume:35b5ffbd-9878-4e66-8a46-11adf9162b06'
+  - 'saveassetinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'createfoldersinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'deletefilesandfoldersinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'replacefilesinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'editimagesinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'editpeerfilesinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'replacepeerfilesinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'deletepeerfilesinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'editpeerimagesinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'viewpeerfilesinvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'viewvolume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  - 'retour:dashboard'
+  - 'retour:redirects'
+  - 'seomatic:dashboard'

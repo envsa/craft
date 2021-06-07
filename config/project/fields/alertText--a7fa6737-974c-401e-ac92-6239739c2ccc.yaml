@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 5530f693-5e22-48f0-ba53-d8e8999ec908 # Common
+handle: alertText
+instructions: 'This field accepts [Markdown](https://devhints.io/markdown)'
+name: 'Alert text'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

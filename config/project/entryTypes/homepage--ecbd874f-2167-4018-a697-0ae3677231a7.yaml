@@ -1,0 +1,65 @@
+fieldLayouts:
+  36b70137-d270-4462-84e0-3f23d9d26df4:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: d1152498-6abe-47fa-b464-5bcdf21f8469 # Slider
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1a8be7af-355e-4777-94e1-baa28478f18c # Cards
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 75
+          -
+            fieldUid: 2531ac3b-5fe6-4a9d-8e82-0a7f97c99a17 # Tiles
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: homepage
+hasTitleField: false
+name: Homepage
+section: 5bca25b9-aa51-4b88-bbe5-9e338aecfb97 # Homepage
+sortOrder: 1
+titleFormat: Home
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,14 @@
+contentColumnType: string(255)
+fieldGroup: 5530f693-5e22-48f0-ba53-d8e8999ec908 # Common
+handle: redirectUrl
+instructions: ''
+name: 'Redirect URL'
+searchable: true
+settings:
+  maxLength: '255'
+  placeholder: null
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url

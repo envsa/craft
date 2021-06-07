@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 820d67ae-c658-4d30-8347-14058c97e1c1 # Globals
+handle: sitemap
+instructions: ''
+name: Sitemap
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_sitemap}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

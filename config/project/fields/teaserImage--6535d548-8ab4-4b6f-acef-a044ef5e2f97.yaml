@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 7bfcbb3d-29bf-40e4-a9a8-838a0ebf268b # Settings
+handle: teaserImage
+instructions: 'Alternate image for navigation menus etc.'
+name: 'Teaser image'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Add an image'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  singleUploadLocationSubpath: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

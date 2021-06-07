@@ -1,0 +1,25 @@
+childBlocks: ''
+field: fa112548-c36b-46b2-901a-839be3825ce8 # Content builder
+fieldLayouts:
+  645c9c9e-a29c-4cbb-9865-5a26724d85fc:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: fb00c1dd-4f98-427b-a2ba-4b53503d8cb5 # Rich text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Main
+        sortOrder: 1
+handle: text
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Text
+sortOrder: 1
+topLevel: true

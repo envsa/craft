@@ -1,0 +1,42 @@
+field: 1a8be7af-355e-4777-94e1-baa28478f18c # Cards
+fieldLayouts:
+  02ef52ea-d6cf-4904-a2f1-5953b414492e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f001d339-76e8-48b0-acba-217ef1a01041 # Entry
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  f001d339-76e8-48b0-acba-217ef1a01041: # Entry
+    contentColumnType: string
+    fieldGroup: null
+    handle: entry
+    instructions: ''
+    name: Entry
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: entryCard
+name: 'Entry card'
+sortOrder: 2

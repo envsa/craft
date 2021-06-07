@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: cecca9f8-cda2-42fb-a95e-904be420d48b # Homepage
+handle: homepageCards
+instructions: ''
+name: Cards
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_homepagecards}}'
+  maxBlocks: '3'
+  minBlocks: '3'
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

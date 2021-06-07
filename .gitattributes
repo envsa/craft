@@ -1,2 +1,8 @@
-# Set files to binary so they don't register for annoying merge commits
-package-lock.json   binary
+# Do not export those files in the Composer archive (lighter dependency)
+.gitattributes export-ignore
+composer.lock export-ignore
+LICENSE.md export-ignore
+README.md export-ignore
+
+# Auto detect text files and perform LF normalization
+* text=auto

@@ -1,27 +1,43 @@
 {% extends "_layouts/generic-page-layout" %}
+{% set slides = entry.slider.all() %}
+{% set cards = entry.homepageCards.all() %}
+{% set ctas = site.ctas.all() %}
+{% set tiles = entry.homepageTiles.all() %}
 
-{# -- Any template/page specific variables -- #}
-{# {% set var = value %} #}
 
-{% from "_partials/macros" import icon %}
+{# -- Any <meta> tags that should be included in the <head> -- #}
+{% block headMeta %}{% endblock %}
 
-{% block headlinks %}
-    {{ parent() }}
-{% endblock headlinks %}
+{# -- Any <link> tags that should be included in the <head> -- #}
+{% block headlinks %}{% endblock %}
 
+{# -- Any CSS that should be included before </head> #}
+{% block headCss %}{% endblock %}
+
+{# -- Page body -- #}
 {% block content %}
-    <section class="h-screen bg-green-600 flex w-full items-center justify-center">
-        <div class="w-3/4 text-white text-center">
-            {{ icon('coffee', '') }}
-            <h1 class="text-6xl font-bold font-heading mt-5">Time to grab a coffee and start your project</h1>
-        </div>
-    </section>
-{% endblock content %}
+	{% include "_partials/hero-slider" with slides %}
+	<div class="p-4 lg:p-5 flex gap-4 lg:flex-row flex-wrap">
+		<section class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:w-3/4">
+			{% for block in cards %}
+				{% include "_partials/homepage-card" %}
+			{% endfor %}
+		</section>
+		{# grid md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-10 lg:gap-y-16 col-span-3 #}
+		<section class="w-full grid gap-x-4 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:w-3/4 lg:gap-y-16 lg:order-3">
+			{% for block in tiles %}
+				{% include "_partials/homepage-tile" %}
+			{% endfor %}
+		</section>
 
-{% block subcontent %}
-{% endblock subcontent %}
+		<section class="flex gap-4 pt-4 border-primary divide-x divide-primary lg:pt-0 lg:border-b lg:border-t lg:gap-0 lg:divide-x-0 lg:divide-y  lg:flex-col flex-grow lg:order-2">
+			{% for block in ctas %}
+				{% include "_partials/cta" %}
+			{% endfor %}
+		</section>
+	</div>
+
+{% endblock %}
 
 {# -- Any JavaScript that should be included before </body> -- #}
-{% block bodyJs %}
-    {{ parent() }}
-{% endblock bodyJs %}
+{% block bodyJs %}{% endblock %}

@@ -1,0 +1,20 @@
+contentColumnType: text
+fieldGroup: 7bfcbb3d-29bf-40e4-a9a8-838a0ebf268b # Settings
+handle: seamlessId
+instructions: ''
+name: 'Seamless ID'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  mode: readonly
+  modeOverride: ''
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: mmikkel\incognitofield\fields\IncognitoFieldType

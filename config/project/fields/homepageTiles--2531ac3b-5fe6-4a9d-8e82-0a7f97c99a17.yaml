@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: cecca9f8-cda2-42fb-a95e-904be420d48b # Homepage
+handle: homepageTiles
+instructions: ''
+name: Tiles
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_homepagetiles}}'
+  maxBlocks: '6'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
