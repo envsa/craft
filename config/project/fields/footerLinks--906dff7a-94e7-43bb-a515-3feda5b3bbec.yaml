@@ -1,0 +1,73 @@
+contentColumnType: text
+fieldGroup: 820d67ae-c658-4d30-8347-14058c97e1c1 # Globals
+handle: footerLinks
+instructions: ''
+name: 'Footer links'
+searchable: false
+settings:
+  addRowLabel: 'Add a link'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Text
+            -
+              - handle
+              - text
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Link
+            -
+              - handle
+              - link
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - Disclaimer
+        -
+          - col2
+          - ''
+    -
+      __assoc__:
+        -
+          - col1
+          - Privacy
+        -
+          - col2
+          - ''
+    -
+      __assoc__:
+        -
+          - col1
+          - Accessibility
+        -
+          - col2
+          - ''
+  maxRows: ''
+  minRows: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

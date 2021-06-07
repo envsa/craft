@@ -1,0 +1,72 @@
+field: 0fef2185-d09c-42d9-9624-0a21ac6fb75d # Sitemap
+fieldLayouts:
+  f59c422a-5a61-43cd-8982-199dc98718ee:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f5883c0b-785a-40e4-9388-fbddcac15399 # Heading
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 83e05d2b-86fa-4766-8485-1a5c0dea3b37 # Sub pages
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  83e05d2b-86fa-4766-8485-1a5c0dea3b37: # Sub pages
+    contentColumnType: string
+    fieldGroup: null
+    handle: subPages
+    instructions: 'Add up to 6 subpages'
+    name: 'Sub pages'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '6'
+      localizeRelations: false
+      selectionLabel: 'Select subpages'
+      showSiteMenu: false
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  f5883c0b-785a-40e4-9388-fbddcac15399: # Heading
+    contentColumnType: string
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: 'Add an entry to be the heading'
+      showSiteMenu: false
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: group
+name: Group
+sortOrder: 1

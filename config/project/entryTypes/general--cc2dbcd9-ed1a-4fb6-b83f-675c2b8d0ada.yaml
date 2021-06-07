@@ -1,0 +1,138 @@
+fieldLayouts:
+  cc7b76f2-aea2-4851-8e97-1d3b4f565a6d:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: e449bc51-6949-4b4c-8fbf-008e590c9935 # Hero image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fa112548-c36b-46b2-901a-839be3825ce8 # Content builder
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 116eadab-13c0-402d-ae59-d4f76c4a88a3 # Sidebar options
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ad29506d-5bf0-4507-ace0-445d37ad4df3 # Hide from navigation
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 06536257-6591-4559-b58a-811c65d68b07 # Hide from search
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            style: tip
+            tip: 'These will be the first preference when the page is referenced elsewhere on the site. eg. Cards, menus etc.'
+            type: craft\fieldlayoutelements\Tip
+          -
+            fieldUid: b8cad5cb-060a-4f09-b35c-c4ddd40c147b # Teaser title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8faa7537-f8f6-4808-88f5-909c50cf87b8 # Teaser text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6535d548-8ab4-4b6f-acef-a044ef5e2f97 # Teaser image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
+            fieldUid: dfd7b766-d49f-44c9-bd57-01ecc5d17160 # Seamless ID
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1d70b19f-40c1-4d79-bc85-8dd8eab4883e # Legacy url
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Settings
+        sortOrder: 2
+handle: general
+hasTitleField: true
+name: General
+section: ed9d3647-71e9-4ce1-a143-0a5692fd03d0 # Pages
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

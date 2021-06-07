@@ -1,0 +1,42 @@
+field: 2531ac3b-5fe6-4a9d-8e82-0a7f97c99a17 # Tiles
+fieldLayouts:
+  1a3266d1-b275-4d63-bc23-e46db6f40895:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 8959879c-169a-4705-b3d3-0a4dcb88dcfa # Entry
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  8959879c-169a-4705-b3d3-0a4dcb88dcfa: # Entry
+    contentColumnType: string
+    fieldGroup: null
+    handle: entry
+    instructions: ''
+    name: Entry
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: entryTile
+name: 'Entry tile'
+sortOrder: 2

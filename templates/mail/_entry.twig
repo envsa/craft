@@ -1,7 +1,63 @@
-{% extends 'mail/_layout' %}
+{% set buttonColor = "#E5422B" %}
+{% import "mail/_layout" as m %}
+{% extends "mail/_layout" %}
+
+{# set site logos #}
+{% set siteLogo = site.siteLogo.one() ?? craft.assets().volume('sharedImages').fileName('craftcms.svg').one() %}
+{% set craftLogo = craft.assets().volume('sharedImages').fileName('craftcms.svg').one() %}
+
+{# make sure logos are in png format #}
+{% set png140 = {
+    mode: 'fit',
+    height: 140,
+    format: 'png'
+} %}
+{% set png50 = {
+    mode: 'fit',
+    height: 50,
+    format: 'png'
+} %}
+
+{% set callToAction %}
+{% if emailKey is defined %}
+	{% switch emailKey %}
+
+		{% case "account_activation" %}
+			{{ 'Activate your account' }}
+
+		{% case "forgot_password" %}
+			{{ 'Reset my password' }}
+
+		{% case "verify_new_email" %}
+			{{ 'Verify my email address' }}
+
+	{% endswitch %}
+{% endif %}
+{% endset %}
+
+{% block preview %}
+	A new message from
+	{{ alias('@web')|urlHost }}
+{% endblock %}
+
+{% block header %}
+	<img src="{{ siteLogo.getUrl(png140) }}" alt="{{ sitelogo.altText ?? null }}" height="70">
+{% endblock %}
+
+{% block footer %}
+	<img src="{{ craftLogo.getUrl(png50) }}" alt="{{ craftLogo.altText ?? null }}" height="25">
+{% endblock %}
 
 {% block content %}
+	{{ m.title("Hey #{user.friendlyName ?? 'User'},") }}
 
-  {{ body }}
+	{# The text that is in `utilities -> system messages` #}
+	{{ body }}
 
+	{% if link is defined %}
+		{{ m.button(callToAction, link, buttonColor) }}
+	{% endif %}
+
+	<p>If you were not expecting this email, just ignore it.
+		<br>If you encounter any issues, please reply to this email.</p>
 {% endblock %}

@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 820d67ae-c658-4d30-8347-14058c97e1c1 # Globals
+handle: acknowledgementText
+instructions: ''
+name: 'Acknowledgement text'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: '1'
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

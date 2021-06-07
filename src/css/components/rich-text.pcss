@@ -1,0 +1,229 @@
+/**
+ * components/rich-text.pcss
+ *
+ * Make sure that rich text fields get the correct styles
+ *
+ * Adopted from typeset.css for tailwind
+ * https://github.com/joshuarudd/typeset.css/
+ */
+
+.rich-text {
+  /*
+   * Initialize spacing and colors
+   */
+
+  li,
+  dt,
+  dd,
+  p,
+  pre,
+  th,
+  td {
+    @apply leading-6;
+  }
+
+  dl,
+  dd,
+  div,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  pre,
+  table,
+  ol,
+  ul {
+    @apply mb-6;
+  }
+
+  blockquote,
+  ol,
+  ul {
+    @apply ml-10;
+  }
+
+  code,
+  pre,
+  th {
+    @apply bg-primary-50;
+  }
+
+  code,
+  pre,
+  th,
+  td {
+    @apply text-black;
+  }
+
+  pre,
+  table,
+  th,
+  td {
+    @apply border border-primary-50;
+  }
+
+  /*
+   * Inline elements
+   */
+
+  a {
+    @apply underline text-primary;
+  }
+
+  strong,
+  b {
+    @apply font-bold;
+  }
+
+  u,
+  em,
+  i {
+    @apply no-underline italic;
+  }
+
+  abbr[title] {
+    @apply border-b border-dotted border-gray-500;
+  }
+
+  cite {
+    @apply italic;
+  }
+
+  code {
+    @apply font-mono py-1 px-2;
+  }
+
+  del {
+    @apply line-through text-red-500;
+  }
+
+  ins {
+    @apply no-underline text-green-500;
+  }
+
+  kbd,
+  samp {
+    @apply font-mono;
+  }
+
+  mark {
+    @apply text-black;
+
+    background-color: rgba(0, 140, 255, 0.1);
+  }
+
+  small {
+    @apply text-sm text-gray-500;
+  }
+
+  s {
+    @apply line-through;
+  }
+
+  sub {
+    @apply text-xs;
+
+    vertical-align: sub;
+  }
+
+  sup {
+    @apply text-xs;
+
+    vertical-align: super;
+  }
+
+  var {
+    @apply italic;
+  }
+
+  /*
+   * Lists
+   */
+  ol {
+    @apply list-decimal;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol ol,
+  ul ul,
+  ol ul,
+  ul ol {
+    @apply my-0;
+  }
+
+  ol ol {
+    list-style: lower-alpha;
+  }
+
+  ol ol ol {
+    list-style: lower-roman;
+  }
+
+  ol ol ol ol {
+    @apply list-decimal;
+  }
+
+  dt {
+    @apply font-bold;
+  }
+
+  dd {
+    @apply mt-0;
+  }
+
+  /*
+   * Block-level elements
+   */
+  h2,
+  h3 {
+    @apply text-primary;
+  }
+
+  h2 {
+    @apply text-3xl mt-8 mb-4;
+  }
+
+  h3 {
+    @apply text-2xl mt-6;
+  }
+
+  h4 {
+    @apply text-xl mt-6;
+  }
+
+  blockquote {
+    @apply border-l-2 border-primary ml-1 bg-opacity-80 bg-primary pl-2;
+  }
+
+  pre {
+    @apply rounded-lg block font-mono text-sm leading-8 mb-8 max-w-full overflow-scroll whitespace-pre-wrap;
+
+    padding: calc(1em - 1px) 1.5em;
+  }
+
+  /*
+   * Tables
+   */
+  table {
+    @apply border-collapse;
+
+    table-layout: auto;
+  }
+
+  th,
+  td {
+    @apply text-left align-top;
+
+    padding: calc(0.75em - 0.5px);
+  }
+
+  th {
+    @apply font-bold;
+  }
+}

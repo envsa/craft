@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 820d67ae-c658-4d30-8347-14058c97e1c1 # Globals
+handle: acknowledgementImage
+instructions: ''
+name: 'Acknowledgement image'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:007cf408-5171-4608-bb10-37e9d01c33e7' # Shared documents
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Add an image'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:37e0968a-18b5-4f97-b792-d34a431b19fd' # Shared images
+  singleUploadLocationSubpath: AOC
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

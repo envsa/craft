@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 5530f693-5e22-48f0-ba53-d8e8999ec908 # Common
+handle: dismiss
+instructions: 'Allow the user to close this?'
+name: Dismiss
+searchable: false
+settings:
+  default: true
+  offLabel: 'No'
+  onLabel: 'Yes'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

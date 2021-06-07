@@ -9,7 +9,7 @@
         <div class="container mx-auto py-8">
             <div class="text-center p-8 mb-8">
                 <h1 class="font-heading italic font-bold text-5xl pt-4">
-                    {{ entry.errorHeadline ?? 'Error' }}
+                    {{ entry.errorHeadline ?? entry.title ??'Error' }}
                 </h1>
                 <p class="font-body text-xl pt-4">
                     {{ (entry.errorText ?? 'An error has occured.')|nl2br }}

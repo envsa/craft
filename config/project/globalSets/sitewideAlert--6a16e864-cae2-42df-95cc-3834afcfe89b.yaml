@@ -1,0 +1,54 @@
+fieldLayouts:
+  f94f935f-88f7-4e0a-987f-cf140e155cad:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a7fa6737-974c-401e-ac92-6239739c2ccc # Alert text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 65d8ebe8-6a97-403c-8f4d-27b32c5b4d5a # Dismiss
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b5e6b714-38fe-4661-91c0-28454e56d45a # Start date
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a93a6824-982b-40e8-ab4b-3ed360a152c3 # End date
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bc35f3c3-ef3c-46da-9dba-1a19b48ad7f9 # Excluded pages
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Main
+        sortOrder: 1
+handle: sitewideAlert
+name: 'Sitewide alert'

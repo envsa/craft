@@ -1,11 +1,3 @@
 module.exports = {
-    env: {
-        node: true,
-        browser: true
-    },
-    extends: 'standard',
-    rules: {
-        semi: ['error', 'always'],
-        'no-var': 2
-    }
+  extends: ['@envsa', '@envsa/eslint-config/vue']
 };

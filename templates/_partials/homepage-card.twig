@@ -1,0 +1,31 @@
+{% switch block.type %}
+	{% case "customCard" %}
+		{% set image = block.image.one() ?? null %}
+		{% set text = block.href.getText() %}
+
+	{% case "entryCard" %}
+		{% set entry = block.entry.one() %}
+		{% set image = null %}
+		{# {% set image = entry.teaserImage.one() ?? entry.heroImage.one() ?? null %} #}
+		{% set text = entry.teaserTitle ?? entry.title %}
+{% endswitch %}
+
+
+<a href="#" class="relative block w-full no-underline hover:underline h-56">
+	{% if image %}
+		{% set optimizedImages = image.cardImage %}
+		<div class="h-full">
+			<picture>
+				<source srcset="{{ optimizedImages.srcsetWebP() }}" sizes="100vw" type="image/webp"/>
+				<img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" sizes="100vw" class="object-cover"/>
+			</picture>
+		</div>
+	{% else %}
+		<div class="h-full">
+			<img class="object-cover w-full h-full" src="https://source.unsplash.com/random/400x300" alt="">
+		</div>
+	{% endif %}
+	<div class="absolute bottom-0 p-2 w-full bg-black bg-opacity-80 text-white text-xl">
+		<span>{{ text }}</span>
+	</div>
+</a>

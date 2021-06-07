@@ -1,0 +1,37 @@
+{% extends '_partials/site-fonts' %}
+
+{% block preload %}
+  {% for family in fonts %}
+    {% for font in family %}
+      {% if font.preload %}
+        <link rel="preload" as="font" href="{{ font.src.woff2 }}" crossorigin="anonymous" />
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endblock %}
+
+{# prettier-ignore-start #}
+{% block style %}
+  <!-- fonts -->
+  <style>
+  {% minify css %}
+    {%- for name, family in fonts -%}
+      {%- for font in family -%}
+        @font-face {
+          font-family: '{{ name }}';
+          font-display: swap;
+          unicode-range: U+000-5FF;
+          {% if font.style is defined %}font-style: {{ font.style }};{% endif %}
+          {% if font.weight is defined %}font-weight: {{ font.weight }};{% endif %}
+          {% if font.fontStretch is defined %}font-stretch: {{ font.fontStretch }};{% endif %}
+          src: {% if font.local is defined %}local('{{ font.local }}'),{% endif %}
+          {%- for format, url in font.src -%}
+          url({{ url }}) format('{{ format }}'){{ loop.last ? ';' : ',' }}
+          {%- endfor -%}
+        }
+      {%- endfor -%}
+    {%- endfor -%}
+  {% endminify %}
+  </style>
+{% endblock %}
+{# prettier-ignore-end #}

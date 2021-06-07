@@ -1,40 +1,77 @@
-/* eslint-disable quote-props */
+const colors = require('tailwindcss/colors');
+
+const customColors = {
+  transparent: 'transparent',
+  current: 'currentColor',
+  black: colors.black,
+  white: colors.white,
+  gray: colors.trueGray,
+  indigo: colors.indigo,
+  blue: colors.blue,
+  red: colors.red,
+  green: colors.green
+};
 
 module.exports = {
+  // mode: 'jit',
+  darkMode: false, // or 'media' or 'class',
+  purge: {
+    // https://tailwindcss.com/docs/optimizing-for-production
+    content: [
+      './src/js/**/*.{js,ts}',
+      './src/vue/**/*.{vue,html}',
+      './templates/**/*.{twig,html}'
+    ],
+    options: {
+      safelist: [/^ff-/],
+      whitelist: ['./src/css/components/*.css']
+    }
+  },
   theme: {
-    // Extend the default Tailwind config here
+    colors: {
+      ...customColors,
+      primary: {
+        DEFAULT: '#217B73',
+        50: '#E6F0EF',
+        100: '#69D7CD',
+        200: '#48CEC2',
+        300: '#32BBAF',
+        400: '#2A9B91',
+        500: '#217B73',
+        600: '#1B635C',
+        700: '#144B46',
+        800: '#0E332F',
+        900: '#071A19'
+      },
+      secondary: {
+        DEFAULT: '#9E948B',
+        50: '#FFFFFF',
+        100: '#FBFAFA',
+        200: '#E4E1DE',
+        300: '#CCC7C3',
+        400: '#B5AEA7',
+        500: '#9E948B',
+        600: '#867A70',
+        700: '#6A6159',
+        800: '#4E4842',
+        900: '#332E2A'
+      }
+    },
     extend: {
-    },
-    // Replace the default Tailwind config here
-    fontWeight: {
-      normal: 400,
-      bold: 700
-    },
-    fontFamily: {
-      // We want to override these font stacks in the generic/global.scss file
-      heading: ['proxima-nova', 'sans-serif'],
-      body: ['proxima-nova', 'sans-serif']
-    },
-    screens: {
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1200px'
-    },
-    aspectRatio: {
-      'square': [1, 1],
-      '4/3': [4, 3],
-      '16/9': [16, 9],
-      '21/9': [21, 9]
+      spacing: {
+        30: '7.5rem'
+      }
     }
   },
   variants: {
-    backgroundColor: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-    textDecoration: ['responsive', 'hover', 'focus', 'active', 'group-hover']
+    extend: {
+      display: ['group-hover']
+    }
   },
-  corePlugins: {},
   plugins: [
-    require('tailwindcss-aspect-ratio')()
-  ],
-  purge: false
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('tailwindcss-skip-link')()
+  ]
 };

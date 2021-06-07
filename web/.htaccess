@@ -1,9 +1,124 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Remove trailing slashes
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Normalize urls
+    # TODO: edit this for www preference
+    # RewriteCond %{HTTP_HOST} ^parks.sa.gov.au
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    # For WordPress bots/users
+    RewriteCond %{REQUEST_URI} ^/(wp-login|wp-admin|wp-config|wp-content|wp-includes|xmlrpc|(.*)\.exe)$ [NC]
+    RewriteRule ^(.*)$ https://wordpress.com/wp-login.php [L,R=301]
+
+    # Lets encrypt
+    RewriteRule ^.well-known/acme-challenge - [L]
+
+    # Block access to 'hidden' directories or files starting with a period.
+    RewriteCond %{SCRIPT_FILENAME} -d [OR]
+    RewriteCond %{SCRIPT_FILENAME} -f
+    RewriteRule "(^|/)\." - [F]
+
     # Send would-be 404 requests to Craft
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
     RewriteRule (.+) index.php?p=$1 [QSA,L]
+</IfModule>
+
+# Block access to backup and source files
+<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
+	Order allow,deny
+	Deny from all
+	Satisfy All
+</FilesMatch>
+
+# Increase cookie security
+<IfModule php5_module>
+	php_value session.cookie_httponly true
+</IfModule>
+
+# GZIP all the things
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript
+</IfModule>
+
+# Cache policy
+<IfModule mod_headers.c>
+  <FilesMatch "\\.(|ttf|otf|woff|woff2|eot|pdf|flv|swf)$">
+    # 1 year
+    Header set Cache-Control "max-age=31556952, public"
+  </FilesMatch>
+  <FilesMatch "\\.(ico|webp|jpg|jpeg|png|gif|svg)$">
+    # 30 days
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  <FilesMatch "\\.(css)$">
+    # 7 days
+    Header set Cache-Control "max-age=604800, public"
+  </FilesMatch>
+  <FilesMatch "\\.(js)$">
+    # 2 days
+    Header set Cache-Control "max-age=172800, private"
+  </FilesMatch>
+  <FilesMatch "\\.(xml|txt)$">
+    # 2 days
+    Header set Cache-Control "max-age=172800, public, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\\.(html|htm|php)$">
+    Header set Cache-Control "max-age=1, private, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+  # Defaults
+  DefaultLanguage en
+  AddLanguage en-US .html .css .js
+  AddCharset utf-8 .html .css .js .xml .json .rss .atom
+
+  # Javascript
+  AddType application/javascript js jsonp
+  AddType application/json json
+
+  # Fonts
+  AddType font/opentype otf
+  AddType application/font-woff woff
+  AddType application/x-font-woff woff
+  AddType application/vnd.ms-fontobject eot
+  AddType application/x-font-ttf ttc ttf
+  AddType image/svg+xml svg svgz
+  AddEncoding gzip svgz
+
+  # Audio
+  AddType audio/mp4 m4a f4a f4b
+  AddType audio/ogg oga ogg
+
+  # Video
+  AddType video/mp4 mp4 m4v f4v f4p
+  AddType video/ogg ogv
+  AddType video/webm webm
+  AddType video/x-flv flv
+
+  # Images
+  AddType image/x-icon ico
+  AddType image/webp webp
+  AddType image/gif gif GIF
+  AddType image/jpeg jpeg jpg jpe JPG
+
+  # Others
+  AddType application/octet-stream safariextz
+  AddType application/x-chrome-extension crx
+  AddType application/x-opera-extension oex
+  AddType application/x-shockwave-flash swf
+  AddType application/x-web-app-manifest+json webapp
+  AddType application/manifest+json webmanifest
+  AddType application/x-xpinstall xpi
+  AddType application/xml atom rdf rss xml
+  AddType text/cache-manifest appcache manifest
+  AddType text/vtt vtt
+  AddType text/x-component htc
+  AddType text/x-vcard vcf
 </IfModule>

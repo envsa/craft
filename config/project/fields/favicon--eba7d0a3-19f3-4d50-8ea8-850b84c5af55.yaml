@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: 820d67ae-c658-4d30-8347-14058c97e1c1 # Globals
+handle: favicon
+instructions: 'It''s best to try and make sure this is cropped square before uploading'
+name: Favicon
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:37e0968a-18b5-4f97-b792-d34a431b19fd' # Shared images
+  defaultUploadLocationSubpath: favicons
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Select favicon source'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:37e0968a-18b5-4f97-b792-d34a431b19fd' # Shared images
+  singleUploadLocationSubpath: Favicons
+  source: null
+  sources:
+    - 'volume:37e0968a-18b5-4f97-b792-d34a431b19fd' # Shared images
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

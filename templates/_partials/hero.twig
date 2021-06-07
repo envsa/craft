@@ -1,0 +1,10 @@
+{% set optimizedImages = entry.heroImage.one().optimizedHeroImage ?? null %}
+
+{% if optimizedImages %}
+	<div class="h-44">
+		<picture>
+			<source srcset="{{ optimizedImages.srcsetWebP() }}" sizes="100vw" type="image/webp"/>
+			<img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" sizes="100vw" class="object-cover h-full w-full"/>
+		</picture>
+	</div>
+{% endif %}

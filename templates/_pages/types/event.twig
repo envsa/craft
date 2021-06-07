@@ -1,0 +1,55 @@
+{% extends '_layouts/generic-page-layout' %}
+{% set whatsOn = craft.entries().section('pages').slug('whats-on').one() %}
+{% set breadcrumbs = [whatsOn] %}
+
+{% block content %}
+	<div class="grid lg:grid-cols-5 px-5 pt-8 space-y-4 lg:space-y-0">
+		<section class="col-span-1">
+			{# {% include "_partials/nav-side" %} #}
+		</section>
+		<section class="lg:col-span-3 text-gray-900 leading-normal space-y-6 px-8">
+			{% include "_partials/breadcrumbs" %}
+			{% include "_partials/hero" %}
+			<h1 class="text-4xl text-primary">
+				{{ entry.title }}
+			</h1>
+
+			{% if entry.contentBuilder %}
+				{% set contentBuilder = entry.contentBuilder.level(1).all() %}
+				{% include '_partials/content-builder' with {
+          blocks: contentBuilder
+        } %}
+			{% endif %}
+		</section>
+
+		<section class="col-span-1 space-y-8">
+			{% if entry.sidebarOptions.contains('callToActions') %}
+				{% set ctas = site.ctas.all() %}
+				<ul class="divide-primary divide-y border-primary border-b">
+					{% for block in ctas %}
+						<li class="py-2">{% include "_partials/cta" %}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if entry.sidebarOptions.contains('location') %}
+				{% set location = site.location %}
+				<div class="border-primary border-b">
+					<h2 class="text-3xl text-primary mb-4">Location</h2>
+					<div class="aspect-w-1 aspect-h-1 mb-4">
+						{% include "_partials/map" with {
+              address: location.address
+            } %}
+					</div>
+				</div>
+			{% endif %}
+
+			{% if entry.sidebarOptions.contains('recentPosts') %}
+				<div>
+					<h2 class="text-3xl text-primary mb-4">Recent posts</h2>
+				</div>
+			{% endif %}
+		</section>
+
+	</div>
+{% endblock %}

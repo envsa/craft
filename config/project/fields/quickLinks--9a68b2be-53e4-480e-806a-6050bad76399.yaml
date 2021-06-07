@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 5530f693-5e22-48f0-ba53-d8e8999ec908 # Common
+handle: quickLinks
+instructions: ''
+name: 'Quick links'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_quicklinks}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

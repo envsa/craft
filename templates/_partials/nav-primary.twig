@@ -1,0 +1,32 @@
+{# TODO: mobile nav #}
+
+{% set homepage = craft.entries.section('homepage').one() %}
+{% set pages = craft.entries.section('pages').level(1).hideNav('not true').all() %}
+{% set pages = pages|unshift(homepage) %}
+
+<nav class="relative bg-primary-700 text-sm">
+	<ul class="flex text-white">
+		{% for page in pages %}
+			<li class="group">
+				<a href="{{ page.url }}" class="block hover:bg-primary-400 px-5 py-2 whitespace-nowrap">{{ page.teaserTitle ?? page.title }}</a>
+				{% set children = page.children.hideNav('not true').all() %}
+				{% if children|length %}
+					<div class="hidden group-hover:grid gap-2 grid-cols-4 z-50 absolute left-0 w-full bg-primary-400 p-5">
+						{% for child in children %}
+							<ul class="text-white">
+								<li>
+									<a href="{{ child.url }}" class="block px-5 py-2 bg-primary-500 hover:bg-primary-600">{{ child.teaserTitle ?? child.title }}</a>
+									<ul class="text-white py-2 space-y-1">
+										{% for sub_child in child.children.hideNav('not true').all() %}
+											<a href="{{sub_child.url}}" class="block px-5 hover:underline">{{ sub_child.teaserTitle ?? sub_child.title }}</a>
+										{% endfor %}
+									</ul>
+								</li>
+							</ul>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+</nav>

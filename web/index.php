@@ -1,24 +1,28 @@
 <?php
+
 /**
  * Craft web bootstrap file
  */
 
-// Set path constants
+// Define path constants
 define('CRAFT_BASE_PATH', dirname(__DIR__));
-define('CRAFT_VENDOR_PATH', CRAFT_BASE_PATH.'/vendor');
+define('CRAFT_VENDOR_PATH', CRAFT_BASE_PATH . '/vendor');
 
 // Load Composer's autoloader
-require_once CRAFT_VENDOR_PATH.'/autoload.php';
+require_once CRAFT_VENDOR_PATH . '/autoload.php';
 
 // Load dotenv?
-if (class_exists('Dotenv\Dotenv') && file_exists(CRAFT_BASE_PATH.'/.env')) {
-    Dotenv\Dotenv::create(CRAFT_BASE_PATH)->load();
+if (class_exists('Dotenv\Dotenv') && file_exists(CRAFT_BASE_PATH . '/.env')) {
+  Dotenv\Dotenv::create(CRAFT_BASE_PATH)->load();
 }
 
-// Set license key via .env
+// Define additional PHP constants
+// (see https://craftcms.com/docs/3.x/config/#php-constants)
+define('CRAFT_ENVIRONMENT', getenv('ENVIRONMENT') ?: 'production');
 // define('CRAFT_LICENSE_KEY', getenv('LICENSE_KEY'));
+// ...
 
 // Load and run Craft
-define('CRAFT_ENVIRONMENT', getenv('ENVIRONMENT') ?: 'production');
-$app = require CRAFT_VENDOR_PATH.'/craftcms/cms/bootstrap/web.php';
+/** @var craft\web\Application $app */
+$app = require CRAFT_VENDOR_PATH . '/craftcms/cms/bootstrap/web.php';
 $app->run();
