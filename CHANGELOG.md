@@ -22,8 +22,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -- Security
 
 -->
+## 2.0.1
+Update security
 
-## unreleased
+### Added
+- password policy plugin
+
+### Changed
+- Update general config settings
+
+## 2.0.0
 Complete rework of the project
 
 ### Added
